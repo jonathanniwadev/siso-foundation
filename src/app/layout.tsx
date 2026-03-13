@@ -15,9 +15,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "NonProfitOrganization",
+    name: "SISO Foundation",
+    url: "https://sisofoundation.org",
+    description:
+      "SISO Foundation supports youth and communities through reproductive health, skills & livelihoods, and menstrual hygiene / women empowerment.",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "Uganda",
+    },
+  };
+
   return (
     <html lang="en">
       <body className="bg-white text-slate-900">
+        {/* Structured Data for Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+
         <SiteNavbar />
         {children}
         <Footer />
