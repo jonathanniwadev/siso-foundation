@@ -5,9 +5,17 @@ import SiteNavbar from "@/components/site/SiteNavbar";
 import Footer from "@/components/site/Footer";
 
 export const metadata: Metadata = {
-  title: "SISO Foundation",
+  title: "SISO Foundation | Empowering Youth & Communities in Uganda",
   description:
-    "SISO Foundation supports youth and communities through reproductive health, skills & livelihoods, and menstrual hygiene / women empowerment.",
+    "SISO Foundation is a nonprofit organization in Uganda empowering youth and communities through reproductive health programs, skills training, livelihoods, and menstrual hygiene support.",
+  keywords: [
+    "SISO Foundation",
+    "NGO Uganda",
+    "youth empowerment Uganda",
+    "women empowerment Uganda",
+    "menstrual hygiene programs",
+    "community development NGO Uganda",
+  ],
 };
 
 export default function RootLayout({

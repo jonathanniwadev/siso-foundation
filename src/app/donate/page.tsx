@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 type DonateForm = {
   name: string;
   email: string;
   phone: string;
-  amount: string; // keep as string in inputs, convert to number on submit
+  amount: string;
   currency: string;
   message: string;
 };
@@ -14,6 +15,8 @@ type DonateForm = {
 const CURRENCIES = ["UGX", "USD", "KES", "EUR", "GBP"] as const;
 
 export default function DonatePage() {
+  const searchParams = useSearchParams();
+
   const [form, setForm] = useState<DonateForm>({
     name: "",
     email: "",
@@ -25,8 +28,9 @@ export default function DonatePage() {
 
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [successMsg, setSuccessMsg] = useState<string | null>(null);
-  const [reference, setReference] = useState<string | null>(null);
+
+  const paymentStatus = searchParams.get("payment");
+  const paymentReference = searchParams.get("reference");
 
   const amountNumber = useMemo(() => Number(form.amount), [form.amount]);
   const isAmountValid =
@@ -46,19 +50,24 @@ export default function DonatePage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErrorMsg(null);
-    setSuccessMsg(null);
-    setReference(null);
 
     if (!isAmountValid) {
       setErrorMsg("Please enter a valid amount greater than 0.");
       return;
     }
+
     if (!form.currency) {
       setErrorMsg("Please select a currency.");
       return;
     }
 
+    if (!form.email.trim() && !form.phone.trim()) {
+      setErrorMsg("Please provide at least an email or phone number.");
+      return;
+    }
+
     setLoading(true);
+
     try {
       const res = await fetch("/api/donate", {
         method: "POST",
@@ -77,19 +86,17 @@ export default function DonatePage() {
 
       if (!res.ok || !data?.ok) {
         throw new Error(
-          data?.error || `Failed to submit donation (HTTP ${res.status}).`,
+          data?.error || `Failed to create donation (HTTP ${res.status}).`,
         );
       }
 
-      setReference(data?.reference ?? null);
-      setSuccessMsg(
-        "Thank you! Donation request saved. Proceed to payment next.",
-      );
-      // keep fields, but clear amount/message so user doesn’t double-submit accidentally
-      setForm((prev) => ({ ...prev, amount: "", message: "" }));
+      if (!data?.payment_url) {
+        throw new Error("Payment link was not returned.");
+      }
+
+      window.location.href = data.payment_url;
     } catch (err: any) {
       setErrorMsg(err?.message ?? "Network error. Try again.");
-    } finally {
       setLoading(false);
     }
   }
@@ -98,11 +105,12 @@ export default function DonatePage() {
     <div className="min-h-[70vh] bg-gradient-to-b from-black via-zinc-950 to-zinc-900 py-14">
       <div className="mx-auto max-w-5xl px-4">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          {/* Left: copy */}
+          {/* Left */}
           <div className="pt-2">
             <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
               Donate
             </h1>
+
             <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-300">
               Your support helps SISO Foundation deliver reproductive health
               programs, skills development, and community empowerment across
@@ -113,34 +121,76 @@ export default function DonatePage() {
               <div className="text-sm font-semibold text-white">
                 What happens next?
               </div>
+
               <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-zinc-300">
-                <li>You submit the donation details.</li>
+                <li>You submit your donation details.</li>
                 <li>We create a donation reference in our system.</li>
-                <li>You proceed to payment via Flutterwave (later).</li>
+                <li>
+                  You are redirected securely to PesaPal to complete payment.
+                </li>
+                <li>
+                  After payment, your donation status is updated automatically.
+                </li>
               </ol>
+
               <p className="mt-3 text-xs text-zinc-400">
-                For now we’re saving donation requests while we finalize
-                Flutterwave setup.
+                Donations are processed securely through PesaPal.
               </p>
             </div>
           </div>
 
-          {/* Right: form */}
+          {/* Right */}
           <div className="rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-black/10 md:p-8">
-            {/* Alerts */}
+            {/* Payment messages */}
+            {paymentStatus === "completed" && (
+              <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
+                <div className="font-semibold">
+                  Thank you. Your donation was completed successfully.
+                </div>
+                {paymentReference && (
+                  <div className="mt-1">
+                    Reference:{" "}
+                    <span className="font-mono">{paymentReference}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {paymentStatus === "failed" && (
+              <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                Payment failed. Please try again.
+              </div>
+            )}
+
+            {paymentStatus === "reversed" && (
+              <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                This payment was reversed.
+              </div>
+            )}
+
+            {paymentStatus === "invalid" && (
+              <div className="mb-4 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-800">
+                Payment was not completed.
+              </div>
+            )}
+
+            {paymentStatus === "cancelled" && (
+              <div className="mb-4 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-800">
+                Payment was cancelled before completion.
+              </div>
+            )}
+
+            {paymentStatus === "error" && (
+              <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                We could not confirm that payment. Please contact support if
+                money was deducted.
+              </div>
+            )}
+
+            {/* Error alert */}
             {errorMsg && (
               <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
                 {errorMsg}
-              </div>
-            )}
-            {successMsg && (
-              <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
-                <div className="font-semibold">{successMsg}</div>
-                {reference && (
-                  <div className="mt-1">
-                    Reference: <span className="font-mono">{reference}</span>
-                  </div>
-                )}
               </div>
             )}
 
@@ -250,22 +300,13 @@ export default function DonatePage() {
                 disabled={loading}
                 className="w-full rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white shadow-lg transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {loading ? "Submitting..." : "Submit Donation"}
-              </button>
-
-              <button
-                type="button"
-                disabled={!reference}
-                className="w-full rounded-xl border border-emerald-600 bg-white px-5 py-3 font-semibold text-emerald-700 transition hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-50"
-                onClick={() =>
-                  alert("Next step: redirect to Flutterwave checkout")
-                }
-              >
-                Continue to Payment (Flutterwave)
+                {loading
+                  ? "Redirecting to PesaPal..."
+                  : "Continue to Secure Payment"}
               </button>
 
               <p className="text-center text-xs text-zinc-500">
-                Payments will be processed securely via Flutterwave (next step).
+                Payments are processed securely by PesaPal.
               </p>
             </form>
           </div>

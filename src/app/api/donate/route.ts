@@ -1,69 +1,66 @@
-// src/app/api/donate/route.ts
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { createPesapalOrder } from "@/lib/pesapal";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    // Basic validation
     const amount = Number(body.amount);
-    if (!Number.isFinite(amount) || amount <= 0) {
+
+    if (!amount || amount <= 0) {
       return NextResponse.json(
         { ok: false, error: "Invalid amount" },
         { status: 400 }
       );
     }
 
-    const currency = String(body.currency || "").toUpperCase().trim();
-    if (!currency) {
-      return NextResponse.json(
-        { ok: false, error: "Currency is required" },
-        { status: 400 }
-      );
-    }
+    const currency = String(body.currency || "").toUpperCase();
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-    if (!supabaseUrl || !serviceKey) {
-      return NextResponse.json(
-        { ok: false, error: "Missing server environment variables" },
-        { status: 500 }
-      );
-    }
-
-    const supabase = createClient(supabaseUrl, serviceKey);
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
 
     const reference =
       "SISO_" + Date.now() + "_" + Math.random().toString(16).slice(2);
 
-    const { data, error } = await supabase
-      .from("donations")
-      .insert([
-        {
-          name: body.name ?? null,
-          email: body.email ?? null,
-          phone: body.phone ?? null,
-          amount,
-          currency,
-          message: body.message ?? null,
-          status: "pending",
-          payment_provider: "flutterwave",
-          reference,
-        },
-      ])
-      .select()
-      .single();
+    const { error } = await supabase.from("donations").insert([
+      {
+        name: body.name ?? null,
+        email: body.email ?? null,
+        phone: body.phone ?? null,
+        amount,
+        currency,
+        message: body.message ?? null,
+        status: "pending",
+        payment_provider: "pesapal",
+        reference,
+      },
+    ]);
 
     if (error) {
-      return NextResponse.json({ ok: false, error: error.message }, { status: 400 });
+      return NextResponse.json({ ok: false, error: error.message });
     }
 
-    return NextResponse.json({ ok: true, donation: data, reference });
+    const order = await createPesapalOrder({
+      reference,
+      amount,
+      currency,
+      name: body.name,
+      email: body.email,
+      phone: body.phone,
+    });
+
+    return NextResponse.json({
+      ok: true,
+      reference,
+      payment_url: order.redirect_url,
+      order_tracking_id: order.order_tracking_id,
+    });
   } catch (e: any) {
     return NextResponse.json(
-      { ok: false, error: e?.message ?? "Server error" },
+      { ok: false, error: e.message || "Server error" },
       { status: 500 }
     );
   }
