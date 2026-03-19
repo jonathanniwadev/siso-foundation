@@ -103,7 +103,7 @@ export default function HomePage() {
       <HomeBoardSection />
       <HomeDonateSection />
 
-      {/* Focus Areas */}
+      Focus Areas
       <section className="mx-auto max-w-6xl px-4 py-14">
         <div className="flex items-end justify-between gap-4">
           <div>

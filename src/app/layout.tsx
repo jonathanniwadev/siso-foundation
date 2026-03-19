@@ -7,15 +7,16 @@ import Footer from "@/components/site/Footer";
 export const metadata: Metadata = {
   title: "SISO Foundation | Empowering Youth & Communities in Uganda",
   description:
-    "SISO Foundation is a nonprofit organization in Uganda empowering youth and communities through reproductive health programs, skills training, livelihoods, and menstrual hygiene support.",
-  keywords: [
-    "SISO Foundation",
-    "NGO Uganda",
-    "youth empowerment Uganda",
-    "women empowerment Uganda",
-    "menstrual hygiene programs",
-    "community development NGO Uganda",
-  ],
+    "SISO Foundation empowers communities through reproductive health education, skills training, and women's empowerment programs.",
+  openGraph: {
+    title: "SISO Foundation",
+    description:
+      "Empowering youth and communities in Uganda through health, education, and livelihood programs.",
+    url: "https://sisofoundation.org",
+    siteName: "SISO Foundation",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
