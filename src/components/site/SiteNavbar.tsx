@@ -16,6 +16,7 @@ const nav = [
 
 export default function SiteNavbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     function onScroll() {
@@ -26,6 +27,24 @@ export default function SiteNavbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 768) {
+        setMobileOpen(false);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
     <header
@@ -38,7 +57,11 @@ export default function SiteNavbar() {
           scrolled ? "py-1.5" : "py-3"
         }`}
       >
-        <Link href="/" className="flex items-center gap-3">
+        <Link
+          href="/"
+          className="flex min-w-0 items-center gap-3"
+          onClick={() => setMobileOpen(false)}
+        >
           <Image
             src="/sisologo.jpeg"
             alt="SISO Foundation"
@@ -47,9 +70,9 @@ export default function SiteNavbar() {
             className="rounded-full object-cover transition-all duration-300"
           />
 
-          <div className="leading-tight">
+          <div className="min-w-0 leading-tight">
             <div
-              className={`font-extrabold tracking-tight text-slate-900 transition-all duration-300 ${
+              className={`truncate font-extrabold tracking-tight text-slate-900 transition-all duration-300 ${
                 scrolled ? "text-sm" : "text-base"
               }`}
             >
@@ -88,7 +111,7 @@ export default function SiteNavbar() {
           </Link>
         </nav>
 
-        <div className="md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <Link
             href="/donate"
             className={`rounded-xl bg-emerald-600 font-bold text-white transition-all duration-300 hover:bg-emerald-700 ${
@@ -97,7 +120,63 @@ export default function SiteNavbar() {
           >
             Donate
           </Link>
+
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-800 shadow-sm transition hover:bg-slate-50"
+          >
+            <span className="sr-only">Toggle menu</span>
+
+            <span
+              className={`absolute h-0.5 w-5 rounded bg-slate-800 transition-all duration-300 ${
+                mobileOpen ? "rotate-45" : "-translate-y-1.5"
+              }`}
+            />
+            <span
+              className={`absolute h-0.5 w-5 rounded bg-slate-800 transition-all duration-300 ${
+                mobileOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute h-0.5 w-5 rounded bg-slate-800 transition-all duration-300 ${
+                mobileOpen ? "-rotate-45" : "translate-y-1.5"
+              }`}
+            />
+          </button>
         </div>
+      </div>
+
+      <div
+        className={`overflow-hidden border-t border-slate-200 bg-white transition-all duration-300 ease-in-out md:hidden ${
+          mobileOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-6xl flex-col px-4 py-3">
+          {nav.map((n, index) => (
+            <Link
+              key={n.href}
+              href={n.href}
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-3 font-semibold text-slate-700 transition hover:bg-slate-50 hover:text-slate-900"
+              style={{
+                transitionDelay: mobileOpen ? `${index * 40}ms` : "0ms",
+              }}
+            >
+              {n.label}
+            </Link>
+          ))}
+
+          <Link
+            href="/donate"
+            onClick={() => setMobileOpen(false)}
+            className="mt-2 rounded-xl bg-emerald-600 px-4 py-3 text-center font-bold text-white transition hover:bg-emerald-700"
+          >
+            Donate Now
+          </Link>
+        </nav>
       </div>
     </header>
   );
