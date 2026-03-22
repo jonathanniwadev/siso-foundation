@@ -60,7 +60,7 @@ export default function ProgramsPage() {
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hero/programs-hero.jpeg"
+            src="/hero/programs-hero.webp"
             alt="SISO Foundation programs supporting communities in Uganda"
             fill
             priority
