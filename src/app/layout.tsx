@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | SISO Foundation Uganda",
   },
   description:
-    "SISO Foundation is a Uganda-based nonprofit organization empowering youth and communities through reproductive health, skills development, menstrual hygiene, and women empowerment programs.",
+    "SISO Foundation is a Uganda-based nonprofit organization empowering youth and communities through reproductive health, skills development, menstrual hygiene and women empowerment programs.",
   keywords: [
     "SISO Foundation",
     "SISO Foundation Uganda",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SISO Foundation Uganda",
     description:
-      "Empowering youth and communities in Uganda through reproductive health, education, skills development, and livelihood programs.",
+      "Empowering youth and communities in Uganda through reproductive health, education, skills development and livelihood programs.",
     url: "https://sisofoundation.org",
     siteName: "SISO Foundation",
     locale: "en_UG",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SISO Foundation Uganda",
     description:
-      "Empowering youth and communities in Uganda through health, education, and livelihood support.",
+      "Empowering youth and communities in Uganda through health, education and livelihood support.",
     images: ["/sisologo.jpeg"],
   },
   icons: {
@@ -72,7 +72,7 @@ export default function RootLayout({
     url: "https://sisofoundation.org",
     logo: "https://sisofoundation.org/sisologo.jpeg",
     description:
-      "SISO Foundation is a nonprofit organization in Uganda supporting youth and communities through reproductive health, skills development, menstrual hygiene, and women empowerment programs.",
+      "SISO Foundation is a nonprofit organization in Uganda supporting youth and communities through reproductive health, skills development, menstrual hygiene and women empowerment programs.",
     address: {
       "@type": "PostalAddress",
       addressCountry: "UG",

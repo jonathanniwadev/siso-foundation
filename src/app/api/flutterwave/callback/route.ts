@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
 
     const supabase = createClient(supabaseUrl, serviceKey);
 
-    let finalStatus = mapStatus(redirectStatus);
+function mapStatus(status?: string | null)
 
     if (transactionId) {
       const verified = await verifyFlutterwaveTransaction(transactionId);
