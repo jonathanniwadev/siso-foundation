@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { verifyFlutterwaveTransaction } from "@/lib/flutterwave";
 
-function mapStatus(status?: string) {
+function mapStatus(status?: string | null) {
   switch ((status || "").toLowerCase()) {
     case "successful":
       return "completed";
