@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type Slide = {
   src: string;
@@ -13,19 +14,19 @@ export default function HeroCarousel() {
   const slides: Slide[] = useMemo(
     () => [
       {
-        src: "/hero/1.jpg",
+        src: "/hero/1.webp",
         title: "Let’s Change the World\nWith Your Support.",
         subtitle:
           "Our mission is to empower youth and communities through reproductive health, skills development, women empowerment, and menstrual hygiene support.",
       },
       {
-        src: "/hero/2.jpg",
+        src: "/hero/2.webp",
         title: "Health. Skills.\nDignity for All.",
         subtitle:
           "Together we build stronger communities — one program, one family, one youth at a time.",
       },
       {
-        src: "/hero/3.jpg",
+        src: "/hero/3.webp",
         title: "Your Donation\nCreates Impact.",
         subtitle:
           "Support programs that keep girls in school and help youth gain skills for livelihood.",
@@ -36,32 +37,47 @@ export default function HeroCarousel() {
 
   const [index, setIndex] = useState(0);
 
-  const current = slides[index];
-
   function prev() {
     setIndex((i) => (i === 0 ? slides.length - 1 : i - 1));
   }
+
   function next() {
     setIndex((i) => (i === slides.length - 1 ? 0 : i + 1));
   }
 
-  // Auto slide (optional)
   useEffect(() => {
-    const t = setInterval(() => next(), 7000);
+    const t = setInterval(() => {
+      setIndex((i) => (i === slides.length - 1 ? 0 : i + 1));
+    }, 7000);
+
     return () => clearInterval(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [slides.length]);
 
   return (
     <section className="relative h-[85vh] min-h-[560px] w-full overflow-hidden bg-black">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
-        style={{ backgroundImage: `url(${current.src})` }}
-      />
+      {/* Background images */}
+      {slides.map((slide, i) => (
+        <div
+          key={slide.src}
+          className={`absolute inset-0 transition-opacity duration-700 ${
+            i === index ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.title.replace(/\n/g, " ")}
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      ))}
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60" />
-      Top info bar
+
+      {/* Top info bar */}
       <div className="absolute left-0 right-0 top-0 z-20 border-b border-white/10 bg-black/20 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 text-xs text-white/80">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
@@ -82,15 +98,16 @@ export default function HeroCarousel() {
           </div>
         </div>
       </div>
+
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="whitespace-pre-line text-4xl font-extrabold leading-tight tracking-tight text-white md:text-6xl">
-            {current.title}
+            {slides[index].title}
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/80 md:text-base">
-            {current.subtitle}
+            {slides[index].subtitle}
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -110,6 +127,7 @@ export default function HeroCarousel() {
           </div>
         </div>
       </div>
+
       {/* Slider arrows */}
       <button
         onClick={prev}
@@ -118,6 +136,7 @@ export default function HeroCarousel() {
       >
         ‹
       </button>
+
       <button
         onClick={next}
         className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 px-4 py-3 text-white hover:bg-white/15"
@@ -125,6 +144,7 @@ export default function HeroCarousel() {
       >
         ›
       </button>
+
       {/* Dots */}
       <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">
         {slides.map((_, i) => (
