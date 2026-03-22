@@ -1,34 +1,56 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://sisofoundation.org";
+
   return [
     {
-      url: 'https://sisofoundation.org',
+      url: baseUrl,
       lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
     },
     {
-      url: 'https://sisofoundation.org/about',
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
-      url: 'https://sisofoundation.org/programs',
+      url: `${baseUrl}/programs`,
       lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
-      url: 'https://sisofoundation.org/updates',
+      url: `${baseUrl}/updates`,
       lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
-      url: 'https://sisofoundation.org/governance',
+      url: `${baseUrl}/governance`,
       lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
-      url: 'https://sisofoundation.org/certification',
+      url: `${baseUrl}/certification`,
       lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
-      url: 'https://sisofoundation.org/contact',
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
-    }
-  ]
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/donate`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+  ];
 }
