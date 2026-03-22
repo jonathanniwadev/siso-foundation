@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/favicon.ico?v=2",
+    shortcut: "/favicon.ico?v=2",
     apple: "/apple-touch-icon.png",
   },
 };
