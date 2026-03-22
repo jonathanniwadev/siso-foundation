@@ -1,7 +1,12 @@
-// src/app/about/page.tsx
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about SISO Foundation, a nonprofit organization in Uganda working to empower youth and communities through reproductive health, skills development, menstrual hygiene, and women empowerment programs.",
+};
 
 export default function AboutPage() {
   return (
@@ -11,10 +16,11 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <Image
             src="/hero/about-main.jpeg"
-            alt="SISO Foundation supporting communities"
+            alt="SISO Foundation working with communities in Uganda"
             fill
-            className="object-cover"
             priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -26,12 +32,14 @@ export default function AboutPage() {
             </p>
 
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-              Building healthier, dignified, and resilient communities
+              Empowering youth and communities in Uganda through health,
+              dignity, and opportunity
             </h1>
 
             <p className="mt-4 max-w-2xl text-base leading-8 text-zinc-200 md:text-lg">
-              SISO Foundation works with vulnerable youths and women in Uganda
-              through health programs, skills development, and empowerment
+              SISO Foundation is a nonprofit organization in Uganda working with
+              vulnerable youths and women through reproductive health programs,
+              skills development, menstrual hygiene support, and empowerment
               initiatives that create practical and lasting change.
             </p>
 
@@ -62,8 +70,9 @@ export default function AboutPage() {
           </h2>
 
           <p className="mt-2 text-slate-600">
-            We exist to improve the health and social-economic wellbeing of
-            vulnerable youths and women in Uganda.
+            We exist to improve the health and socio-economic wellbeing of
+            vulnerable youths and women in Uganda through community-centered
+            nonprofit programs, partnerships, and empowerment initiatives.
           </p>
         </div>
 
@@ -81,9 +90,10 @@ export default function AboutPage() {
             <h2 className="text-xl font-bold text-slate-900">Our Mission</h2>
 
             <p className="mt-3 text-slate-600">
-              To contribute to the health and social-economic wellbeing of
+              To contribute to the health and socio-economic wellbeing of
               vulnerable youths and women in Uganda through practical community
-              programs and empowerment initiatives.
+              programs, empowerment initiatives, and sustainable support
+              systems.
             </p>
           </div>
         </div>
@@ -146,9 +156,10 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-3 text-slate-600">
-              SISO Foundation supports vulnerable communities through health
-              programs, youth skills development, women empowerment, and
-              community-based solutions that promote resilience and dignity.
+              SISO Foundation supports vulnerable communities in Uganda through
+              reproductive health programs, youth skills development, women
+              empowerment, and community-based solutions that promote resilience
+              and dignity.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -169,14 +180,16 @@ export default function AboutPage() {
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h3 className="text-lg font-bold text-slate-900">Focus Areas</h3>
+            <h3 className="text-lg font-bold text-slate-900">
+              Programs & Focus Areas
+            </h3>
 
             <ul className="mt-4 space-y-3 text-slate-700">
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-emerald-600" />
                 <span>
-                  <b>Health & reproductive health</b> — improving access and
-                  awareness.
+                  <b>Health & reproductive health</b> — improving access,
+                  awareness, and support for vulnerable communities in Uganda.
                 </span>
               </li>
 
@@ -184,22 +197,23 @@ export default function AboutPage() {
                 <span className="mt-1 h-2 w-2 rounded-full bg-emerald-600" />
                 <span>
                   <b>Skills development</b> — empowering youth with practical
-                  training.
+                  training and livelihood opportunities.
                 </span>
               </li>
 
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-emerald-600" />
                 <span>
-                  <b>Women empowerment</b> — strengthening dignity and
-                  livelihoods.
+                  <b>Women empowerment</b> — strengthening dignity, confidence,
+                  and livelihoods for women and girls.
                 </span>
               </li>
 
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-emerald-600" />
                 <span>
-                  <b>Community resilience</b> — building sustainable solutions.
+                  <b>Community resilience</b> — building sustainable,
+                  community-led solutions for long-term impact.
                 </span>
               </li>
             </ul>
@@ -219,7 +233,8 @@ export default function AboutPage() {
 
                 <p className="mt-2 text-slate-600">
                   Your support helps us expand health programs, skills training,
-                  and empowerment initiatives.
+                  and empowerment initiatives for vulnerable communities in
+                  Uganda.
                 </p>
               </div>
 

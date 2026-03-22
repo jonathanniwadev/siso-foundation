@@ -2,9 +2,9 @@ import Link from "next/link";
 import CopyButton from "@/components/CopyButton";
 
 export const metadata = {
-  title: "Contact | SISO Foundation",
+  title: "Contact SISO Foundation | Uganda NGO",
   description:
-    "Contact SISO Foundation for partnerships, support, and inquiries.",
+    "Contact SISO Foundation, a nonprofit organization in Uganda. Reach us for partnerships, donations, volunteering, and community programs.",
 };
 
 const EMAIL = "info@sisofoundation.org";
@@ -12,8 +12,26 @@ const PHONE_DISPLAY = "+256-701-523269";
 const PHONE_TEL = "+256701523269";
 
 export default function ContactPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    name: "SISO Foundation",
+    url: "https://sisofoundation.org/contact",
+    email: EMAIL,
+    telephone: PHONE_TEL,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "UG",
+    },
+  };
+
   return (
     <main className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Small Hero */}
       <section className="bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
@@ -23,12 +41,13 @@ export default function ContactPage() {
             </p>
 
             <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-              Let’s talk and build impact together
+              Contact SISO Foundation in Uganda
             </h1>
 
             <p className="mt-3 text-zinc-300 md:text-base">
-              Reach out for partnerships, volunteer opportunities, community
-              outreach, or any questions about SISO Foundation.
+              Reach out to SISO Foundation for partnerships, donations,
+              volunteer opportunities, or any inquiries about our programs
+              supporting communities in Uganda.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -46,6 +65,10 @@ export default function ContactPage() {
                 Call {PHONE_DISPLAY}
               </a>
             </div>
+
+            <p className="mt-4 text-sm text-zinc-400">
+              📍 Based in Uganda • Supporting communities across the country
+            </p>
           </div>
         </div>
       </section>
@@ -63,7 +86,12 @@ export default function ContactPage() {
               Fill the form and we’ll respond as soon as possible.
             </p>
 
-            <form className="mt-6 space-y-5">
+            <form
+              action={`mailto:${EMAIL}`}
+              method="POST"
+              encType="text/plain"
+              className="mt-6 space-y-5"
+            >
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="text-sm font-semibold text-slate-900">
@@ -71,6 +99,7 @@ export default function ContactPage() {
                   </label>
 
                   <input
+                    name="Full name"
                     className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
                     placeholder="Your name"
                   />
@@ -82,6 +111,7 @@ export default function ContactPage() {
                   </label>
 
                   <input
+                    name="Phone"
                     className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
                     placeholder="+256 7xx xxx xxx"
                   />
@@ -94,6 +124,7 @@ export default function ContactPage() {
                 </label>
 
                 <input
+                  name="Email"
                   type="email"
                   className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
                   placeholder="you@example.com"
@@ -106,6 +137,7 @@ export default function ContactPage() {
                 </label>
 
                 <textarea
+                  name="Message"
                   rows={5}
                   className="mt-2 w-full resize-none rounded-xl border border-slate-300 px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
                   placeholder="Write your message..."
@@ -113,7 +145,7 @@ export default function ContactPage() {
               </div>
 
               <button
-                type="button"
+                type="submit"
                 className="w-full rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white hover:bg-slate-800"
               >
                 Send message
@@ -139,6 +171,10 @@ export default function ContactPage() {
 
               <p className="mt-2 text-sm text-slate-700">
                 Reach us for partnerships, support, or general inquiries.
+              </p>
+
+              <p className="mt-2 text-xs text-slate-500">
+                We respond within 24–48 hours.
               </p>
 
               <div className="mt-4 flex items-center gap-3">

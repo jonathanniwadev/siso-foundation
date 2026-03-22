@@ -107,13 +107,13 @@ export default function DonateClient() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <div className="pt-2">
             <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
-              Donate
+              Donate to SISO Foundation
             </h1>
 
             <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-300">
-              Your support helps SISO Foundation deliver reproductive health
-              programs, skills development, and community empowerment across
-              Uganda.
+              Your donation helps SISO Foundation support vulnerable youth,
+              women, and communities in Uganda through reproductive health,
+              skills development, menstrual hygiene, and empowerment programs.
             </p>
 
             <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-zinc-200">
@@ -122,16 +122,26 @@ export default function DonateClient() {
               </div>
 
               <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-zinc-300">
-                <li>You submit your donation details.</li>
+                <li>You enter your donation details.</li>
                 <li>We create a donation reference in our system.</li>
-                <li>You are redirected securely to payment.</li>
+                <li>You are redirected securely to Flutterwave checkout.</li>
                 <li>
-                  After payment, your donation status is updated automatically.
+                  Your donation status is updated after payment confirmation.
                 </li>
               </ol>
 
               <p className="mt-3 text-xs text-zinc-400">
-                Donations are processed securely through our payment partner.
+                Payments are securely processed through Flutterwave.
+              </p>
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-5 text-sm text-emerald-100">
+              <div className="font-semibold text-white">
+                Why your support matters
+              </div>
+              <p className="mt-2 leading-7 text-emerald-100/90">
+                Your contribution supports programs that improve dignity,
+                health, and opportunity for vulnerable communities in Uganda.
               </p>
             </div>
           </div>
@@ -294,11 +304,13 @@ export default function DonateClient() {
                 disabled={loading}
                 className="w-full rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white shadow-lg transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {loading ? "Redirecting..." : "Continue to Secure Payment"}
+                {loading
+                  ? "Redirecting to Flutterwave..."
+                  : "Continue to Secure Payment"}
               </button>
 
               <p className="text-center text-xs text-zinc-500">
-                Payments are processed securely by our payment partner.
+                Payments are securely processed by Flutterwave.
               </p>
             </form>
           </div>

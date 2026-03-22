@@ -7,29 +7,29 @@ const partners = [
   // },
   {
     name: "Amazing Grace Community Health and Rehabilitation Centre",
-    logo: "/partners/amazing-grace.jpeg",
+    logo: "/partners/amazing-grace.webp",
   },
   {
     name: "Bold for Children",
-    logo: "/partners/bold-for-children.jpeg",
+    logo: "/partners/bold-for-children.webp",
   },
   {
     name: "Research Limited",
-    logo: "/partners/research-limited.jpeg",
+    logo: "/partners/research-limited.webp",
   },
   {
     name: "Day Star",
-    logo: "/partners/daily-star.jpeg",
+    logo: "/partners/daily-star.webp",
   },
   {
     name: "Youth First Uganda",
-    logo: "/partners/youth-first-uganda.jpeg",
+    logo: "/partners/youth-first-uganda.webp",
   },
 ];
 
 export default function HomePartnersSection() {
   return (
-    <section className="border-y border-slate-200 bg-white py-12 overflow-hidden">
+    <section className="overflow-hidden border-y border-slate-200 bg-white py-12">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8 text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
@@ -54,6 +54,7 @@ export default function HomePartnersSection() {
                 alt={partner.name}
                 width={140}
                 height={70}
+                sizes="140px"
                 className="h-14 w-auto object-contain grayscale opacity-80 transition hover:grayscale-0 hover:opacity-100"
               />
             </div>

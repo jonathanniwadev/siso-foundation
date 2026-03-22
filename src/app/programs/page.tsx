@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Programs",
+  description:
+    "Explore SISO Foundation programs in Uganda, including reproductive health, skills development, menstrual hygiene, women empowerment, youth mentorship, and community outreach.",
+};
 
 type Program = {
   title: string;
@@ -11,37 +18,37 @@ const programs: Program[] = [
   {
     title: "Reproductive Health & SRHR",
     description:
-      "Community education, awareness, and support to improve reproductive health outcomes for youth and women.",
+      "Community education, awareness, and support that improve reproductive health and SRHR outcomes for youth and women in Uganda.",
     tags: ["Health", "SRHR", "Community"],
   },
   {
     title: "Skills Development",
     description:
-      "Practical skills and mentorship that empower youth with employability and livelihood opportunities.",
+      "Practical skills training, mentorship, and livelihood support that empower youth with employability and income opportunities.",
     tags: ["Training", "Youth", "Livelihoods"],
   },
   {
     title: "Menstrual Hygiene & Dignity",
     description:
-      "Support for menstrual health education and dignity initiatives that keep girls confident and in school.",
+      "Menstrual health education and dignity support that help girls stay confident, healthy, and in school.",
     tags: ["MHM", "Dignity", "Education"],
   },
   {
     title: "Women Empowerment",
     description:
-      "Programs that strengthen women’s economic resilience through empowerment and community support.",
+      "Programs that strengthen women’s confidence, economic resilience, and participation through empowerment and community support.",
     tags: ["Women", "Empowerment", "Resilience"],
   },
   {
     title: "Community Outreach",
     description:
-      "Targeted outreach activities in vulnerable communities to identify needs and deliver timely support.",
+      "Targeted outreach in vulnerable communities to identify urgent needs, provide support, and connect people to opportunities.",
     tags: ["Outreach", "Support", "Impact"],
   },
   {
     title: "Youth Mentorship & Leadership",
     description:
-      "Mentorship and leadership development that helps youth become responsible, purpose-driven community leaders.",
+      "Mentorship and leadership development that help young people become responsible, purpose-driven leaders in their communities.",
     tags: ["Mentorship", "Leadership", "Youth"],
   },
 ];
@@ -54,10 +61,11 @@ export default function ProgramsPage() {
         <div className="absolute inset-0">
           <Image
             src="/hero/programs-hero.jpeg"
-            alt="SISO Foundation programs in communities"
+            alt="SISO Foundation programs supporting communities in Uganda"
             fill
-            className="object-cover"
             priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -69,13 +77,13 @@ export default function ProgramsPage() {
             </p>
 
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-              Practical programs for real community impact
+              Community programs creating real impact in Uganda
             </h1>
 
             <p className="mt-4 max-w-2xl text-base leading-8 text-zinc-200 md:text-lg">
-              We deliver community-centered initiatives that improve health,
-              expand skills, promote dignity, and strengthen resilience among
-              vulnerable youth and women in Uganda.
+              SISO Foundation delivers community-centered programs in Uganda
+              that improve health, build practical skills, promote dignity, and
+              strengthen resilience among vulnerable youth, women, and families.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -98,15 +106,15 @@ export default function ProgramsPage() {
       </section>
 
       {/* Intro */}
-      <section className="mx-auto max-w-6xl px-4 py-14 md:py-8">
+      <section className="mx-auto max-w-6xl px-4 py-14 md:py-16">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-extrabold text-slate-900 md:text-3xl">
-            Areas of Focus
+            Our Programs & Focus Areas
           </h2>
           <p className="mt-3 text-slate-600">
-            Our programs are designed around real community needs. We combine
-            awareness, practical support, mentoring, and empowerment to improve
-            lives and create sustainable change.
+            Our nonprofit programs are designed around real community needs in
+            Uganda. We combine awareness, practical support, mentorship, and
+            empowerment to improve lives and create sustainable change.
           </p>
         </div>
 
@@ -159,7 +167,7 @@ export default function ProgramsPage() {
               </h2>
               <p className="mt-2 text-sm leading-7 text-slate-600">
                 Reach out and we’ll share activity plans, timelines, budgets,
-                and exactly how your support will be used — clearly and
+                and exactly how your support will be used clearly and
                 transparently.
               </p>
             </div>

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import DonateClient from "./DonateClient";
+
+export const metadata: Metadata = {
+  title: "Donate",
+  description:
+    "Donate to SISO Foundation and support vulnerable youth, women, and communities in Uganda through health, dignity, and skills development programs.",
+};
 
 export default function DonatePage() {
   return (

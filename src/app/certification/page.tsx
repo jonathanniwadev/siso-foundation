@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 type Doc = {
@@ -11,35 +12,53 @@ const docs: Doc[] = [
   {
     title: "Registration Certificate",
     description:
-      "Official proof that SISO Foundation LTD is legally registered and permitted to operate.",
+      "Official proof that SISO Foundation Ltd is legally registered and permitted to operate in Uganda.",
     fileUrl: "/certification/registration-certificate.pdf",
     badge: "Government Registration",
   },
   {
     title: "CBO Certificate",
     description:
-      "Community-Based Organization documentation supporting our lawful community operations.",
+      "Community-Based Organization documentation supporting our lawful community operations and local engagement.",
     fileUrl: "/certification/cbo-certificate.pdf",
     badge: "CBO Certification",
   },
   {
     title: "Stamped Constitution",
     description:
-      "Signed and stamped constitution outlining governance, leadership, and accountability structures.",
+      "Signed and stamped constitution outlining governance, leadership, accountability, and organizational structure.",
     fileUrl: "/certification/stamped-constitution.pdf",
     badge: "Stamped Document",
   },
 ];
 
-export const metadata = {
-  title: "Certification | SISO Foundation",
+export const metadata: Metadata = {
+  title: "Certification",
   description:
-    "View official SISO Foundation certification documents and proof of lawful registration.",
+    "View official SISO Foundation certification documents, registration records, and proof of lawful nonprofit operations in Uganda.",
 };
 
 export default function CertificationPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    name: "SISO Foundation",
+    url: "https://sisofoundation.org/certification",
+    description:
+      "Certification and compliance page for SISO Foundation, a nonprofit organization in Uganda.",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "UG",
+    },
+  };
+
   return (
     <main className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Small Hero */}
       <section className="bg-gradient-to-b from-zinc-900 via-black to-zinc-950">
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
@@ -49,12 +68,13 @@ export default function CertificationPage() {
             </p>
 
             <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-              Fully registered & certified in Uganda
+              Certified and legally registered in Uganda
             </h1>
 
             <p className="mt-3 text-zinc-300 md:text-base">
-              SISO Foundation operates with proper documentation and accountable
-              governance. Below are our key official documents for verification.
+              SISO Foundation is a nonprofit organization in Uganda operating
+              with proper documentation, lawful registration, and accountable
+              governance. Below are key official documents for verification.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -72,6 +92,11 @@ export default function CertificationPage() {
                 Governance
               </Link>
             </div>
+
+            <p className="mt-4 text-sm text-zinc-400">
+              Official documents available for partners, donors, and the public
+              for verification.
+            </p>
           </div>
         </div>
       </section>
@@ -84,7 +109,8 @@ export default function CertificationPage() {
               Legal registration
             </div>
             <p className="mt-2 text-sm text-slate-600">
-              We are properly registered and authorized to operate.
+              We are properly registered and authorized to operate as a
+              nonprofit organization in Uganda.
             </p>
           </div>
 
@@ -93,7 +119,8 @@ export default function CertificationPage() {
               Governance & accountability
             </div>
             <p className="mt-2 text-sm text-slate-600">
-              Guided by a board, secretariat, and documented processes.
+              Our work is guided by governance structures, documented processes,
+              and responsible oversight.
             </p>
           </div>
 
@@ -102,7 +129,8 @@ export default function CertificationPage() {
               Transparent operations
             </div>
             <p className="mt-2 text-sm text-slate-600">
-              We maintain clear documentation for partners and supporters.
+              We maintain clear documentation to support trust, verification,
+              and accountability to supporters and partners.
             </p>
           </div>
         </div>
@@ -115,7 +143,8 @@ export default function CertificationPage() {
             Certification documents
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            View or download official documents for verification.
+            View or download official SISO Foundation documents for verification
+            and compliance review.
           </p>
         </div>
 
@@ -164,8 +193,8 @@ export default function CertificationPage() {
           </h3>
 
           <p className="mt-2 text-sm text-slate-600">
-            Contact us and we can share additional verification details for
-            partners, donors, and stakeholders.
+            Contact us and we can share additional verification details with
+            partners and donors when needed.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-3">

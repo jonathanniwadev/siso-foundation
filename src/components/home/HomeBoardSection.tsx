@@ -15,43 +15,44 @@ const board: BoardMember[] = [
     name: "Dr. Richard Obeti",
     title: "Board Chair",
     bio: "Dr. Richard Obeti is the District Health Officer (DHO) of Bunyangabu District with extensive experience in public health leadership, health systems management, and community health programming. He has worked closely with government and development partners to strengthen health service delivery, disease prevention, and community health initiatives. As Board Chair of SISO Foundation, he provides strategic guidance and oversight, ensuring that the organization’s programs align with national health priorities and deliver meaningful impact for vulnerable communities..",
-    image: "/team/alex.jpeg",
+    image: "/team/alex.webp",
   },
   {
     name: "Mr. Jonathan Niwagaba",
     title: "Founder & Executive Director",
     bio: "Leads innovation, technology, and strategic direction to advance the mission of SISO Foundation.",
-    image: "/team/jonathanniwagaba.jpeg",
+    image: "/team/jonathanniwagaba.webp",
   },
   {
     name: "Mr. Nuwamanya Julius Makobore",
     title: "Board Secretary & Legal Advisor",
     bio: "Advocate of the High Court of Uganda with strong experience in legal practice, human rights, and governance.",
-    image: "/team/julius.jpeg",
+    image: "/team/julius.webp",
   },
   {
     name: "Judith Kansiime, MPH",
     title: "Board Member",
     bio: "Public health leader with deep experience in women’s health, SRHR, and resource mobilisation.",
-    image: "/team/judith.jpeg",
+    image: "/team/judith.webp",
   },
   {
     name: "Bernard Kahigi",
     title: "Board Member & Advisor",
     bio: "Brings extensive experience in child development programming, and resource mobilisation.",
-    image: "/team/bernard.jpeg",
+    image: "/team/bernard.webp",
   },
   {
     name: "Ms. Rebecca Atuheire",
     title: "Board Member",
     bio: "Senior nursing officer with experience in health advocacy and reproductive health planning.",
-    image: "/team/rebecca.jpeg",
+    image: "/team/rebecca.webp",
   },
 
   {
     name: "Mbabazi Medard",
     title: "Board Member",
     bio: "Supports community leadership, local coordination, and accountability at grassroots level.",
+    image: "/team/medard.webp",
   },
 ];
 
@@ -65,6 +66,7 @@ function BoardCard({ member }: { member: BoardMember }) {
               src={member.image}
               alt={member.name}
               fill
+              sizes="64px"
               className="object-cover"
             />
           ) : (
