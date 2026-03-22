@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | SISO Foundation Uganda",
   },
   description:
-    "SISO Foundation is a Uganda-based nonprofit organization empowering youth and communities through reproductive health, skills development, menstrual hygiene and women empowerment programs.",
+    "SISO Foundation is a Uganda-based nonprofit organization empowering youth and communities through reproductive health, skills development, menstrual hygiene, and women empowerment programs.",
   keywords: [
     "SISO Foundation",
     "SISO Foundation Uganda",
@@ -25,10 +25,13 @@ export const metadata: Metadata = {
     "donate to NGO in Uganda",
   ],
   metadataBase: new URL("https://sisofoundation.org"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "SISO Foundation Uganda",
     description:
-      "Empowering youth and communities in Uganda through reproductive health, education, skills development and livelihood programs.",
+      "Empowering youth and communities in Uganda through reproductive health, education, skills development, and livelihood programs.",
     url: "https://sisofoundation.org",
     siteName: "SISO Foundation",
     locale: "en_UG",
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SISO Foundation Uganda",
     description:
-      "Empowering youth and communities in Uganda through health, education and livelihood support.",
+      "Empowering youth and communities in Uganda through health, education, and livelihood support.",
     images: ["/sisologo.jpeg"],
   },
   icons: {
@@ -57,7 +60,15 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+  category: "nonprofit",
 };
 
 export default function RootLayout({
@@ -67,12 +78,13 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "NonProfitOrganization",
+    "@type": "NGO",
     name: "SISO Foundation",
     url: "https://sisofoundation.org",
     logo: "https://sisofoundation.org/sisologo.jpeg",
     description:
-      "SISO Foundation is a nonprofit organization in Uganda supporting youth and communities through reproductive health, skills development, menstrual hygiene and women empowerment programs.",
+      "SISO Foundation is a nonprofit organization in Uganda supporting youth and communities through reproductive health, skills development, menstrual hygiene, and women empowerment programs.",
+    areaServed: "Uganda",
     address: {
       "@type": "PostalAddress",
       addressCountry: "UG",

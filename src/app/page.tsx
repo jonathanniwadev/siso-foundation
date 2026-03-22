@@ -45,7 +45,7 @@ export default function HomePage() {
           <div className="relative">
             <div className="overflow-hidden rounded-3xl">
               <Image
-                src="/hero/about-main.jpeg"
+                src="/hero/about-main.webp"
                 alt="SISO Foundation supporting communities in Uganda"
                 width={800}
                 height={900}
@@ -56,7 +56,7 @@ export default function HomePage() {
 
             <div className="absolute -right-4 top-6 hidden overflow-hidden rounded-2xl border-4 border-white shadow-xl md:block">
               <Image
-                src="/hero/about-small.jpeg"
+                src="/hero/about-small.webp"
                 alt="Community outreach and support by SISO Foundation"
                 width={220}
                 height={220}
