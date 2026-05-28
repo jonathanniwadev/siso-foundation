@@ -1,5 +1,4 @@
 export default function HeroStats() {
-  const stats = [
     const stats = [
   { value: "1,500+", label: "Lives Reached" },
   { value: "20+", label: "Community Outreaches" },
