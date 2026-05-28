@@ -46,7 +46,7 @@ export default function DonateClient() {
                 Why your support matters
               </div>
               <p className="mt-2 leading-7 text-emerald-100/90">
-                In 2025, SISO Foundation reached over 7,950 people across six
+                In 2025, SISO Foundation reached over 2000 people across six
                 districts in Western Uganda. Every contribution — large or
                 small — directly funds programmes that transform lives.
               </p>
