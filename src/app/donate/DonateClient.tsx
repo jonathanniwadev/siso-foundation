@@ -38,7 +38,7 @@ export default function DonateClient() {
             <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-300">
               Your donation helps SISO Foundation deliver health outreach,
               vocational skills training, child protection and community
-              empowerment programmes across Uganda.
+              empowerment programmes across Western Uganda.
             </p>
 
             <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-5 text-sm text-emerald-100">
@@ -46,9 +46,10 @@ export default function DonateClient() {
                 Why your support matters
               </div>
               <p className="mt-2 leading-7 text-emerald-100/90">
-                In 2025, SISO Foundation reached over 2000 people across six
-                districts in Western Uganda. Every contribution — large or
-                small — directly funds programmes that transform lives.
+                SISO Foundation has reached over 1,500 people across Western
+                Uganda, trained 40 youth in vocational skills and delivered
+                health services in six districts. Every contribution directly
+                funds programmes that transform lives.
               </p>
             </div>
 
@@ -58,14 +59,14 @@ export default function DonateClient() {
               </div>
               <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-zinc-300">
                 <li>Transfer to our Absa Bank account using the details on the right.</li>
-                <li>Send us your name and transfer reference via email or WhatsApp.</li>
+                <li>Send us your name and transfer reference via email.</li>
                 <li>We will send you a donation acknowledgement letter within 48 hours.</li>
               </ol>
             </div>
 
             <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
               <div className="text-sm font-semibold text-white mb-3">
-                Contact Us Directly
+                Contact Us
               </div>
               <div className="space-y-2 text-sm text-zinc-300">
                 <div className="flex items-center gap-2">
@@ -78,23 +79,12 @@ export default function DonateClient() {
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-zinc-500">WhatsApp:</span>
+                  <span className="text-zinc-500">Phone:</span>
                   <a
-                    href="https://wa.me/256740344518"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:+256740344518"
                     className="text-emerald-400 hover:underline"
                   >
                     +256 740 344 518
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-zinc-500">Phone:</span>
-                  <a
-                    href="tel:+256714319951"
-                    className="text-emerald-400 hover:underline"
-                  >
-                    +256 714 319 951
                   </a>
                 </div>
               </div>
@@ -152,8 +142,7 @@ export default function DonateClient() {
                   className="font-semibold underline"
                 >
                   info@sisofoundation.org
-                </a>{" "}
-                
+                </a>
                 . We will send you an official acknowledgement letter.
               </p>
             </div>
@@ -163,10 +152,17 @@ export default function DonateClient() {
                 International Donors
               </div>
               <p className="mt-1">
-                Use the SWIFT code <span className="font-mono font-semibold">BARCUGKX</span> for
+                Use the SWIFT code{" "}
+                <span className="font-mono font-semibold">BARCUGKX</span> for
                 international wire transfers to our Absa Bank Uganda account.
-                For USD, EUR, GBP or other currencies, please contact us
-                directly and we will provide full correspondent bank details.
+                For USD, EUR, GBP or other currencies, please contact us at{" "}
+                <a
+                  href="mailto:info@sisofoundation.org"
+                  className="font-semibold underline"
+                >
+                  info@sisofoundation.org
+                </a>{" "}
+                and we will provide full correspondent bank details.
               </p>
             </div>
           </div>
