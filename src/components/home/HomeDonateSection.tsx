@@ -1,29 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-
-const amounts = [10, 50, 100];
 
 export default function HomeDonateSection() {
-  const [amount, setAmount] = useState<number | string>("");
-  const router = useRouter();
-
-  const handleDonate = () => {
-    if (!amount) return;
-    router.push(`/donate?amount=${amount}`);
-  };
-
   return (
     <section className="bg-white py-16">
       <div className="mx-auto max-w-6xl px-4">
         <div className="overflow-hidden rounded-[2rem] bg-slate-950 shadow-2xl">
           <div className="grid items-center gap-10 px-6 py-10 md:px-10 md:py-14 lg:grid-cols-2">
+            
             {/* Left side */}
             <div className="text-white">
               <span className="inline-flex rounded-full bg-white/10 px-4 py-1 text-sm font-semibold text-emerald-300">
-                Donate Now
+                Partner With Us
               </span>
 
               <h2 className="mt-5 text-3xl font-extrabold tracking-tight md:text-5xl">
@@ -31,18 +20,18 @@ export default function HomeDonateSection() {
               </h2>
 
               <p className="mt-5 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
-                Every contribution supports our work in reproductive health,
-                menstrual hygiene, skills development, and community
-                empowerment. Together, we can reach more young people and
-                families with practical support and opportunity.
+                SISO Foundation works with vulnerable communities through
+                education support, youth empowerment, health outreach,
+                child protection and community development initiatives across
+                Uganda.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/donate"
+                  href="/contact"
                   className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-700"
                 >
-                  Donate Now →
+                  Contact Us →
                 </Link>
 
                 <Link
@@ -57,50 +46,47 @@ export default function HomeDonateSection() {
             {/* Right side card */}
             <div className="mx-auto w-full max-w-md rounded-3xl bg-white p-6 shadow-xl">
               <div className="rounded-2xl bg-emerald-500 px-5 py-4 text-white">
-                <div className="text-lg font-extrabold">Choose an amount</div>
+                <div className="text-lg font-extrabold">
+                  Support SISO Foundation
+                </div>
+
                 <p className="mt-1 text-sm text-emerald-50">
-                  Support our programs and community outreach.
+                  Partner with us to support vulnerable communities across Uganda.
                 </p>
               </div>
 
               <div className="mt-6">
                 <h3 className="text-center text-xl font-bold text-slate-900">
-                  Your support can make a meaningful difference
+                  Let’s create lasting community impact together
                 </h3>
 
-                {/* preset amounts */}
-                <div className="mt-5 grid grid-cols-3 gap-3">
-                  {amounts.map((a) => (
-                    <button
-                      key={a}
-                      onClick={() => setAmount(a)}
-                      className="rounded-xl border border-slate-200 px-3 py-4 text-center text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                    >
-                      ${a}
-                    </button>
-                  ))}
+                <p className="mt-4 text-center text-sm leading-7 text-slate-600">
+                  To support, collaborate or partner with SISO Foundation,
+                  please contact us through our official communication channels.
+                </p>
+
+                <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center">
+                  <p className="text-sm font-semibold text-slate-500">
+                    Official Email
+                  </p>
+
+                  <a
+                    href="mailto:info@sisofoundation.org"
+                    className="mt-2 block text-lg font-bold text-emerald-700 hover:underline"
+                  >
+                    info@sisofoundation.org
+                  </a>
                 </div>
 
-                {/* custom amount */}
-                <input
-                  type="number"
-                  placeholder="Custom amount ($)"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  className="mt-4 w-full rounded-xl border border-slate-200 px-4 py-4 text-slate-700 outline-none focus:border-emerald-500"
-                />
-
-                {/* donate button */}
-                <button
-                  onClick={handleDonate}
-                  className="mt-6 w-full rounded-xl bg-emerald-600 px-5 py-4 text-sm font-bold text-white transition hover:bg-emerald-700"
+                <Link
+                  href="/contact"
+                  className="mt-6 block w-full rounded-xl bg-emerald-600 px-5 py-4 text-center text-sm font-bold text-white transition hover:bg-emerald-700"
                 >
-                  Continue to Donate →
-                </button>
+                  Contact SISO Foundation →
+                </Link>
 
                 <p className="mt-4 text-center text-xs text-slate-500">
-                  Secure donation process through the SISO Foundation donate
-                  page.
+                  Thank you for supporting our mission of transforming lives.
                 </p>
               </div>
             </div>
