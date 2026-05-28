@@ -11,25 +11,33 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "SISO Foundation is a nonprofit organization in Uganda empowering youth and communities through reproductive health, menstrual hygiene, women empowerment, and skills development programs.",
+    "SISO Foundation is a registered NGO in Uganda delivering health outreach, vocational skills training, child protection, human rights and environmental programmes across Western Uganda.",
 };
 
 const focus = [
   {
-    title: "Reproductive Health",
-    desc: "Education, awareness, and support for reproductive health in Uganda.",
+    title: "Health and Wellness",
+    desc: "Community health outreach, maternal health, immunisation and school health services across six districts in Western Uganda.",
   },
   {
     title: "Skills Development",
-    desc: "Practical training and livelihood support for youth and vulnerable communities.",
+    desc: "Vocational training and economic empowerment for youth from vulnerable communities — equipping graduates with tools, certification and startup support.",
   },
   {
-    title: "Menstrual Hygiene",
-    desc: "Dignity support, school-based initiatives, and menstrual health awareness.",
+    title: "Child Protection",
+    desc: "Feeding programmes, welfare support and referral services for street-connected children and vulnerable families.",
   },
   {
-    title: "Women Empowerment",
-    desc: "Mentorship, support systems, and opportunities that strengthen women and families.",
+    title: "Human Rights",
+    desc: "Community sensitisation, advocacy and civic education promoting the rights of women, children and persons with disabilities.",
+  },
+  {
+    title: "Environmental Conservation",
+    desc: "Tree planting, conservation education and community-based environmental stewardship activities.",
+  },
+  {
+    title: "Emergency Response",
+    desc: "Humanitarian assistance for communities affected by food insecurity, displacement and other acute crises.",
   },
 ];
 
@@ -46,7 +54,7 @@ export default function HomePage() {
             <div className="overflow-hidden rounded-3xl">
               <Image
                 src="/hero/about-main.webp"
-                alt="SISO Foundation supporting communities in Uganda"
+                alt="SISO Foundation community health outreach in Uganda"
                 width={800}
                 height={900}
                 className="h-auto w-full object-cover"
@@ -57,7 +65,7 @@ export default function HomePage() {
             <div className="absolute -right-4 top-6 hidden overflow-hidden rounded-2xl border-4 border-white shadow-xl md:block">
               <Image
                 src="/hero/about-small.webp"
-                alt="Community outreach and support by SISO Foundation"
+                alt="SISO Foundation vocational training and community programmes"
                 width={220}
                 height={220}
                 className="h-auto w-full object-cover"
@@ -72,25 +80,27 @@ export default function HomePage() {
             </span>
 
             <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-              Empowering youth and communities in Uganda through health,
-              dignity, and opportunity
+              Transforming lives across Western Uganda through health, skills
+              and community empowerment
             </h1>
 
             <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
               <p className="text-base leading-8 text-slate-700">
-                SISO Foundation is a Uganda-based nonprofit organization working
-                to improve the lives of young people, women, and vulnerable
-                communities through practical programs in reproductive health,
-                menstrual hygiene, skills development, and empowerment.
+                SISO Foundation is a registered Ugandan NGO headquartered in
+                Murubaya, Kashasha, Rubanda District. We work to improve the
+                health and socio-economic wellbeing of vulnerable youth and
+                women through training, skilling, capacity building and
+                community empowerment.
               </p>
 
               <div className="my-6 h-px bg-slate-200" />
 
               <p className="text-base leading-8 text-slate-700">
-                Our work responds to real community needs through awareness,
-                support services, mentorship, and grassroots outreach. Through
-                partnerships and local action, we aim to create lasting impact
-                where it matters most.
+                In 2025, we reached over 7,950 people across six districts
+                through integrated programmes in healthcare, child protection,
+                skills development, human rights and environmental conservation.
+                All our work is independently audited and transparently
+                reported.
               </p>
             </div>
 
@@ -117,11 +127,11 @@ export default function HomePage() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-extrabold text-slate-900 md:text-3xl">
-              Our Programs & Focus Areas
+              Our Programmes & Focus Areas
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              Our key programs in Uganda focus on health, skills development,
-              and empowering vulnerable communities.
+              Six integrated programme areas delivering measurable impact
+              across Western Uganda.
             </p>
           </div>
 
@@ -129,11 +139,11 @@ export default function HomePage() {
             href="/programs"
             className="hidden rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 md:inline-flex"
           >
-            View Programs
+            View Programmes
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {focus.map((f) => (
             <div
               key={f.title}
@@ -150,7 +160,7 @@ export default function HomePage() {
             href="/programs"
             className="inline-flex rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
           >
-            View Programs
+            View Programmes
           </Link>
         </div>
       </section>
