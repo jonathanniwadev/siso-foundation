@@ -25,7 +25,7 @@ export default function Footer() {
                   info@sisofoundation.org
                 </a>
               </li>
-              <li>
+              {/* <li>
                 Phone:{" "}
                 <a
                   className="font-semibold hover:underline"
@@ -33,7 +33,7 @@ export default function Footer() {
                 >
                   +256-701-523269
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
