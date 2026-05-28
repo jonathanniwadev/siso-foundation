@@ -1,10 +1,11 @@
 export default function HeroStats() {
   const stats = [
-    { value: "500+", label: "Girls Supported" },
-    { value: "20+", label: "Community Outreaches" },
-    { value: "4", label: "Focus Areas" },
-    { value: "100+", label: "Lives Reached" },
-  ];
+    const stats = [
+  { value: "1,500+", label: "Lives Reached" },
+  { value: "20+", label: "Community Outreaches" },
+  { value: "6", label: "Districts Reached" },
+  { value: "40+", label: "Youth Empowered" },
+];
 
   return (
     <section className="relative z-20 -mt-10 md:-mt-14">
