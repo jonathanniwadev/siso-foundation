@@ -153,13 +153,7 @@ export default function DonateClient() {
                 >
                   info@sisofoundation.org
                 </a>{" "}
-                or WhatsApp{" "}
-                <a
-                  href="https://wa.me/256740344518"
-                  className="font-semibold underline"
-                >
-                  +256 740 344 518
-                </a>
+                
                 . We will send you an official acknowledgement letter.
               </p>
             </div>
