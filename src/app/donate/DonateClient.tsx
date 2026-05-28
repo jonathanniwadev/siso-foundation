@@ -38,7 +38,7 @@ export default function DonateClient() {
             <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-300">
               Your donation helps SISO Foundation deliver health outreach,
               vocational skills training, child protection and community
-              empowerment programmes across Western Uganda.
+              empowerment programmes across Uganda.
             </p>
 
             <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-5 text-sm text-emerald-100">
