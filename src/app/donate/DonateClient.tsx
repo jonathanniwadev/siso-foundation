@@ -1,318 +1,180 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
-
-type DonateForm = {
-  name: string;
-  email: string;
-  phone: string;
-  amount: string;
-  currency: string;
-  message: string;
-};
-
-const CURRENCIES = ["UGX", "USD", "KES", "EUR", "GBP"] as const;
 
 export default function DonateClient() {
   const searchParams = useSearchParams();
-
-  const [form, setForm] = useState<DonateForm>({
-    name: "",
-    email: "",
-    phone: "",
-    amount: "",
-    currency: "UGX",
-    message: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-
+  const [copied, setCopied] = useState<string | null>(null);
   const paymentStatus = searchParams.get("payment");
-  const paymentReference = searchParams.get("reference");
 
-  const amountNumber = useMemo(() => Number(form.amount), [form.amount]);
-  const isAmountValid =
-    form.amount.trim().length > 0 &&
-    !Number.isNaN(amountNumber) &&
-    amountNumber > 0;
-
-  function onChange(
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+  function copyToClipboard(text: string, label: string) {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(label);
+      setTimeout(() => setCopied(null), 2000);
+    });
   }
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setErrorMsg(null);
-
-    if (!isAmountValid) {
-      setErrorMsg("Please enter a valid amount greater than 0.");
-      return;
-    }
-
-    if (!form.currency) {
-      setErrorMsg("Please select a currency.");
-      return;
-    }
-
-    if (!form.email.trim() && !form.phone.trim()) {
-      setErrorMsg("Please provide at least an email or phone number.");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const res = await fetch("/api/donate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name.trim() || null,
-          email: form.email.trim() || null,
-          phone: form.phone.trim() || null,
-          amount: amountNumber,
-          currency: form.currency,
-          message: form.message.trim() || null,
-        }),
-      });
-
-      const data = await res.json().catch(() => null);
-
-      if (!res.ok || !data?.ok) {
-        throw new Error(
-          data?.error || `Failed to create donation (HTTP ${res.status}).`,
-        );
-      }
-
-      if (!data?.payment_url) {
-        throw new Error("Payment link was not returned.");
-      }
-
-      window.location.href = data.payment_url;
-    } catch (err: any) {
-      setErrorMsg(err?.message ?? "Network error. Try again.");
-      setLoading(false);
-    }
-  }
+  const bankDetails = [
+    { label: "Bank", value: "Absa Bank Uganda" },
+    { label: "Account Name", value: "SISO Foundation" },
+    { label: "Account Number", value: "6010102691" },
+    { label: "Branch", value: "Kampala Road" },
+    { label: "Sort Code", value: "013447" },
+    { label: "SWIFT Code", value: "BARCUGKX" },
+  ];
 
   return (
     <div className="min-h-[70vh] bg-gradient-to-b from-black via-zinc-950 to-zinc-900 py-14">
       <div className="mx-auto max-w-5xl px-4">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+
+          {/* Left column */}
           <div className="pt-2">
             <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
               Donate to SISO Foundation
             </h1>
 
             <p className="mt-3 max-w-xl text-base leading-relaxed text-zinc-300">
-              Your donation helps SISO Foundation support vulnerable youth,
-              women, and communities in Uganda through reproductive health,
-              skills development, menstrual hygiene, and empowerment programs.
+              Your donation helps SISO Foundation deliver health outreach,
+              vocational skills training, child protection and community
+              empowerment programmes across Western Uganda.
             </p>
 
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-zinc-200">
-              <div className="text-sm font-semibold text-white">
-                What happens next?
-              </div>
-
-              <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-zinc-300">
-                <li>You enter your donation details.</li>
-                <li>We create a donation reference in our system.</li>
-                <li>You are redirected securely to Flutterwave checkout.</li>
-                <li>
-                  Your donation status is updated after payment confirmation.
-                </li>
-              </ol>
-
-              <p className="mt-3 text-xs text-zinc-400">
-                Payments are securely processed through Flutterwave.
-              </p>
-            </div>
-
-            <div className="mt-5 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-5 text-sm text-emerald-100">
+            <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-5 text-sm text-emerald-100">
               <div className="font-semibold text-white">
                 Why your support matters
               </div>
               <p className="mt-2 leading-7 text-emerald-100/90">
-                Your contribution supports programs that improve dignity,
-                health, and opportunity for vulnerable communities in Uganda.
+                In 2025, SISO Foundation reached over 7,950 people across six
+                districts in Western Uganda. Every contribution — large or
+                small — directly funds programmes that transform lives.
               </p>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-zinc-200">
+              <div className="text-sm font-semibold text-white">
+                How to donate
+              </div>
+              <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-zinc-300">
+                <li>Transfer to our Absa Bank account using the details on the right.</li>
+                <li>Send us your name and transfer reference via email or WhatsApp.</li>
+                <li>We will send you a donation acknowledgement letter within 48 hours.</li>
+              </ol>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="text-sm font-semibold text-white mb-3">
+                Contact Us Directly
+              </div>
+              <div className="space-y-2 text-sm text-zinc-300">
+                <div className="flex items-center gap-2">
+                  <span className="text-zinc-500">Email:</span>
+                  <a
+                    href="mailto:info@sisofoundation.org"
+                    className="text-emerald-400 hover:underline"
+                  >
+                    info@sisofoundation.org
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-zinc-500">WhatsApp:</span>
+                  <a
+                    href="https://wa.me/256740344518"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:underline"
+                  >
+                    +256 740 344 518
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-zinc-500">Phone:</span>
+                  <a
+                    href="tel:+256714319951"
+                    className="text-emerald-400 hover:underline"
+                  >
+                    +256 714 319 951
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
+          {/* Right column — bank details */}
           <div className="rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-black/10 md:p-8">
+
             {paymentStatus === "completed" && (
               <div className="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
                 <div className="font-semibold">
-                  Thank you. Your donation was completed successfully.
+                  Thank you. Your donation was received.
                 </div>
-                {paymentReference && (
-                  <div className="mt-1">
-                    Reference:{" "}
-                    <span className="font-mono">{paymentReference}</span>
+              </div>
+            )}
+
+            <h2 className="text-xl font-bold text-zinc-900">
+              Bank Transfer Details
+            </h2>
+            <p className="mt-1 text-sm text-zinc-500">
+              Transfer directly to our Absa Bank account. Click any value to copy it.
+            </p>
+
+            <div className="mt-6 space-y-3">
+              {bankDetails.map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3"
+                >
+                  <div>
+                    <div className="text-xs font-medium text-zinc-500">
+                      {label}
+                    </div>
+                    <div className="mt-0.5 text-sm font-semibold text-zinc-900">
+                      {value}
+                    </div>
                   </div>
-                )}
-              </div>
-            )}
-
-            {paymentStatus === "failed" && (
-              <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                Payment failed. Please try again.
-              </div>
-            )}
-
-            {paymentStatus === "reversed" && (
-              <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                This payment was reversed.
-              </div>
-            )}
-
-            {paymentStatus === "invalid" && (
-              <div className="mb-4 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-800">
-                Payment was not completed.
-              </div>
-            )}
-
-            {paymentStatus === "cancelled" && (
-              <div className="mb-4 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-800">
-                Payment was cancelled before completion.
-              </div>
-            )}
-
-            {paymentStatus === "error" && (
-              <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                We could not confirm that payment. Please contact support if
-                money was deducted.
-              </div>
-            )}
-
-            {errorMsg && (
-              <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-                {errorMsg}
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <label className="text-sm font-medium text-zinc-900">
-                    Name
-                  </label>
-                  <input
-                    name="name"
-                    value={form.name}
-                    onChange={onChange}
-                    className="mt-2 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-emerald-600 focus:ring-4 focus:ring-emerald-100"
-                    placeholder="Optional"
-                    autoComplete="name"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-zinc-900">
-                    Phone
-                  </label>
-                  <input
-                    name="phone"
-                    value={form.phone}
-                    onChange={onChange}
-                    className="mt-2 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-emerald-600 focus:ring-4 focus:ring-emerald-100"
-                    placeholder="+256 7xx xxx xxx"
-                    autoComplete="tel"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium text-zinc-900">
-                  Email
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={onChange}
-                  className="mt-2 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-emerald-600 focus:ring-4 focus:ring-emerald-100"
-                  placeholder="Optional"
-                  autoComplete="email"
-                />
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                <div className="md:col-span-2">
-                  <label className="text-sm font-medium text-zinc-900">
-                    Amount <span className="text-red-600">*</span>
-                  </label>
-                  <input
-                    name="amount"
-                    value={form.amount}
-                    onChange={onChange}
-                    inputMode="decimal"
-                    className="mt-2 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-emerald-600 focus:ring-4 focus:ring-emerald-100"
-                    placeholder="e.g. 50000"
-                    required
-                  />
-                  {!isAmountValid && form.amount.length > 0 && (
-                    <p className="mt-2 text-xs text-red-600">
-                      Enter a number greater than 0.
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-zinc-900">
-                    Currency <span className="text-red-600">*</span>
-                  </label>
-                  <select
-                    name="currency"
-                    value={form.currency}
-                    onChange={onChange}
-                    className="mt-2 w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none focus:border-emerald-600 focus:ring-4 focus:ring-emerald-100"
-                    required
+                  <button
+                    onClick={() => copyToClipboard(value, label)}
+                    className="ml-4 rounded-lg bg-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-300 transition"
                   >
-                    {CURRENCIES.map((c) => (
-                      <option key={c} value={c}>
-                        {c}
-                      </option>
-                    ))}
-                  </select>
+                    {copied === label ? "Copied!" : "Copy"}
+                  </button>
                 </div>
-              </div>
+              ))}
+            </div>
 
-              <div>
-                <label className="text-sm font-medium text-zinc-900">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={onChange}
-                  rows={4}
-                  className="mt-2 w-full resize-none rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-emerald-600 focus:ring-4 focus:ring-emerald-100"
-                  placeholder="Optional message…"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white shadow-lg transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {loading
-                  ? "Redirecting to Flutterwave..."
-                  : "Continue to Secure Payment"}
-              </button>
-
-              <p className="text-center text-xs text-zinc-500">
-                Payments are securely processed by Flutterwave.
+            <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
+              <div className="font-semibold">After transferring:</div>
+              <p className="mt-1 text-emerald-800">
+                Please send your name, amount and transfer reference to{" "}
+                <a
+                  href="mailto:info@sisofoundation.org"
+                  className="font-semibold underline"
+                >
+                  info@sisofoundation.org
+                </a>{" "}
+                or WhatsApp{" "}
+                <a
+                  href="https://wa.me/256740344518"
+                  className="font-semibold underline"
+                >
+                  +256 740 344 518
+                </a>
+                . We will send you an official acknowledgement letter.
               </p>
-            </form>
+            </div>
+
+            <div className="mt-6 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-sm text-zinc-700">
+              <div className="font-semibold text-zinc-900">
+                International Donors
+              </div>
+              <p className="mt-1">
+                Use the SWIFT code <span className="font-mono font-semibold">BARCUGKX</span> for
+                international wire transfers to our Absa Bank Uganda account.
+                For USD, EUR, GBP or other currencies, please contact us
+                directly and we will provide full correspondent bank details.
+              </p>
+            </div>
           </div>
         </div>
       </div>
