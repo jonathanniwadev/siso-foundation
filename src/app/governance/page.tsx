@@ -61,14 +61,14 @@ const board: Person[] = [
     title: "Chairperson",
     qualifications: "Bachelor of Biomedical Laboratory Technology | Lab Officer, Kisoro Hospital",
     bio: "Ms. Tusiime Eresi Biira chairs the Board of Directors of SISO Foundation. With a background in biomedical laboratory technology and frontline health service delivery at Kisoro Hospital, she brings both technical health expertise and practical community understanding to her governance role. She provides strategic leadership and ensures the Foundation's programmes remain aligned with community health priorities.",
-    image: "/team/rebecca.webp",
+    image: "/team/tusiime.jpeg",
   },
   {
     name: "Ms. Akiding Elizabeth Joanita",
     title: "Board Secretary",
     qualifications: "Bachelor of Laws (LLB), Makerere University",
     bio: "Ms. Akiding Elizabeth Joanita serves as Board Secretary of SISO Foundation. A trained lawyer from Makerere University, she provides legal guidance, supports regulatory compliance and ensures that governance documentation, board resolutions and institutional records are maintained to the highest professional standards.",
-    image: "/team/dianah.webp",
+    image: "/team/elizabeth.jpeg",
   },
   {
     name: "Jonathan Niwagaba",
@@ -96,6 +96,7 @@ const board: Person[] = [
     title: "Local Government Representative",
     qualifications: "Diploma in Teaching, Kyambogo University | LC1 Chairperson, Kitahurira Village, Rubanda District",
     bio: "Mbabazi Medard represents local government and community leadership on the SISO Foundation Board. As LC1 Chairperson for Kitahurira Village, he brings grassroots community knowledge, facilitates local coordination and ensures the Foundation's programmes remain accountable and responsive to the communities it serves.",
+    image: "/team/mbabazi.jpeg",
   },
 ];
 
@@ -126,13 +127,14 @@ const management: Person[] = [
     title: "Administrator",
     qualifications: "Bachelor of Software Engineering, Makerere University",
     bio: "Ssukwe Stuart manages the day-to-day administrative operations of SISO Foundation, including office management, records keeping, staff coordination and organisational systems. His background in software engineering also supports the Foundation's digital and technology needs.",
-    image: "/team/stuart.webp",
+    image: "/team/stuart.jpeg",
   },
   {
     name: "Mfitundinda Samuel",
     title: "Community Mobiliser",
     qualifications: "Bachelor of Nursing Science, Metropolitan University | Nursing Officer, Muko General Hospital",
     bio: "Mfitundinda Samuel leads community engagement, mobilisation and outreach activities for SISO Foundation. His nursing background and frontline health experience enable him to connect with communities effectively and coordinate the Foundation's community health and welfare programmes.",
+    image: "/team/samuel.jpeg",
   },
   {
     name: "Kyarikunda Diana",
