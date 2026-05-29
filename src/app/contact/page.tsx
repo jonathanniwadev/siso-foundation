@@ -58,7 +58,7 @@ export default function ContactPage() {
             </div>
 
             <p className="mt-4 text-sm text-zinc-400">
-              📍 Murubaya, Kashasha, Rubanda District, Western Uganda
+              📍 Murubaya, Kashasha, Rubanda District,Uganda
             </p>
           </div>
         </div>
