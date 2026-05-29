@@ -127,7 +127,7 @@ const management: Person[] = [
     title: "Administrator",
     qualifications: "Bachelor of Software Engineering, Makerere University",
     bio: "Ssukwe Stuart manages the day-to-day administrative operations of SISO Foundation, including office management, records keeping, staff coordination and organisational systems. His background in software engineering also supports the Foundation's digital and technology needs.",
-    image: "/team/stuart.jpeg",
+    image: "/team/stuart.webp",
   },
   {
     name: "Mfitundinda Samuel",
