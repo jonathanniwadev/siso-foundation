@@ -73,7 +73,7 @@ const board: Person[] = [
   {
     name: "Jonathan Niwagaba",
     title: "Executive Director (ex-officio)",
-    qualifications: "Diploma in Software Engineering, ISBAT University | BSc Computer Science, ISBAT University",
+    qualifications: "BSc Computer Science, ISBAT University | Diploma in Software Engineering, ISBAT University  ",
     bio: "Jonathan Niwagaba is the Founder and Executive Director of SISO Foundation. With a background in software engineering and computer science, he leads the Foundation's strategic direction, donor partnerships and programme operations. He serves on the Board in an ex-officio capacity, bridging governance and day-to-day management.",
     image: "/team/jonathanniwagaba.webp",
   },
@@ -94,7 +94,7 @@ const board: Person[] = [
   {
     name: "Mbabazi Medard",
     title: "Local Government Representative",
-    qualifications: "LC1 Chairperson, Kitahurira Village, Rubanda District",
+    qualifications: "Diploma in Teaching, Kyambogo University | LC1 Chairperson, Kitahurira Village, Rubanda District",
     bio: "Mbabazi Medard represents local government and community leadership on the SISO Foundation Board. As LC1 Chairperson for Kitahurira Village, he brings grassroots community knowledge, facilitates local coordination and ensures the Foundation's programmes remain accountable and responsive to the communities it serves.",
   },
 ];
