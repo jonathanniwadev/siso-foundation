@@ -14,7 +14,7 @@ export default function HeroCarousel() {
   const slides: Slide[] = useMemo(
     () => [
       {
-        src: "/hero/1.jpeg",
+        src: "/hero/2.jpeg",
         title: "Let’s Change the World\nWith Your Support.",
         subtitle:
           "Our mission is to empower youth and communities through reproductive health, skills development, women empowerment, and menstrual hygiene support.",
