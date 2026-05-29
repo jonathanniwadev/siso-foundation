@@ -73,7 +73,7 @@ const board: Person[] = [
   {
     name: "Jonathan Niwagaba",
     title: "Executive Director (ex-officio)",
-    qualifications: "Diploma in Software Engineering, ISBAT University | BSc Computer Science (ongoing), ISBAT University",
+    qualifications: "Diploma in Software Engineering, ISBAT University | BSc Computer Science, ISBAT University",
     bio: "Jonathan Niwagaba is the Founder and Executive Director of SISO Foundation. With a background in software engineering and computer science, he leads the Foundation's strategic direction, donor partnerships and programme operations. He serves on the Board in an ex-officio capacity, bridging governance and day-to-day management.",
     image: "/team/jonathanniwagaba.webp",
   },
@@ -103,7 +103,7 @@ const management: Person[] = [
   {
     name: "Jonathan Niwagaba",
     title: "Executive Director",
-    qualifications: "Diploma in Software Engineering, ISBAT University | BSc Computer Science (ongoing), ISBAT University",
+    qualifications: "Diploma in Software Engineering, ISBAT University | BSc Computer Science, ISBAT University",
     bio: "Jonathan Niwagaba founded SISO Foundation and leads its overall strategy, partnerships and programme operations. He oversees all management functions and is responsible for the Foundation's institutional growth, donor relationships and long-term sustainability.",
     image: "/team/jonathanniwagaba.webp",
   },
