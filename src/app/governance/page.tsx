@@ -82,7 +82,7 @@ const board: Person[] = [
     title: "Treasurer",
     qualifications: "Bachelor of Arts in Economics, Makerere University",
     bio: "Alinda Joshua Brian serves as Treasurer of SISO Foundation's Board of Directors. With a degree in Economics from Makerere University, he oversees the financial oversight function of the Board, ensuring that the Foundation's resources are managed responsibly and that financial reporting meets donor and regulatory requirements.",
-    image: "/team/brian.webp",
+    image: "/team/alinda.jpeg",
   },
   {
     name: "Judith Kansiime",
