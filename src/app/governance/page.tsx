@@ -3,17 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Governance",
+  title: "Governance | SISO Foundation Uganda",
   description:
-    "Learn about the governance of SISO Foundation, a nonprofit organization in Uganda committed to accountability, transparency, safeguarding, and responsible leadership.",
+    "Meet the Board of Directors and Management Team of SISO Foundation, a registered NGO in Uganda committed to accountability, transparency and responsible leadership.",
 };
 
 type Principle = { title: string; text: string };
 type Doc = { title: string; description: string; href: string };
-
 type Person = {
   name: string;
   title: string;
+  qualifications: string;
   bio: string;
   image?: string;
 };
@@ -21,121 +21,132 @@ type Person = {
 const principles: Principle[] = [
   {
     title: "Accountability",
-    text: "We maintain clear records of decisions, activities, and use of funds, and we regularly review progress to ensure responsible stewardship.",
+    text: "We maintain clear records of decisions, activities and use of funds, and we regularly review progress to ensure responsible stewardship of all resources entrusted to us.",
   },
   {
     title: "Transparency",
-    text: "We communicate openly about our work, partnerships, and project updates so supporters, partners, and communities can trust our processes.",
+    text: "We communicate openly about our work, partnerships and project updates so that supporters, partners and communities can trust our processes and decisions.",
   },
   {
     title: "Safeguarding",
-    text: "We prioritize the safety, dignity, and wellbeing of participants, especially children, youth, women, and vulnerable communities.",
+    text: "We prioritise the safety, dignity and wellbeing of all programme participants, especially children, youth, women and vulnerable community members.",
   },
   {
-    title: "Ethical Partnerships",
-    text: "We work with partners who align with our mission and values, and we seek to avoid conflicts of interest in all engagements.",
+    title: "Integrity",
+    text: "We uphold the highest standards of ethical conduct in all our operations, partnerships and use of donor funds, and we do what we say we will do.",
   },
 ];
 
 const documents: Doc[] = [
   {
     title: "Constitution",
-    description: "Core guiding document for SISO Foundation Ltd.",
+    description: "Core guiding document for SISO Foundation.",
     href: "/constitution",
   },
   {
-    title: "Programs",
-    description: "What we do and how we deliver support in communities.",
+    title: "Programmes",
+    description: "What we do and how we deliver impact in communities.",
     href: "/programs",
   },
   {
-    title: "Impact",
-    description:
-      "How support translates into outcomes and measurable progress.",
-    href: "/impact",
+    title: "Certification",
+    description: "Our legal registration certificates and compliance documents.",
+    href: "/certification",
   },
 ];
 
 const board: Person[] = [
   {
-    name: "Dr. Richard Obeti",
-    title: "Board Chair",
-    bio: "Dr. Richard Obeti is the District Health Officer of Bunyangabu District with extensive experience in public health leadership, health systems management, and community health programming. As Board Chair of SISO Foundation, he provides strategic guidance and oversight to ensure that the organization’s programs align with health priorities and create meaningful impact for vulnerable communities in Uganda.",
-    image: "/team/alex.jpeg",
+    name: "Ms. Tusiime Eresi Biira",
+    title: "Chairperson",
+    qualifications: "Bachelor of Biomedical Laboratory Technology | Lab Officer, Kisoro Hospital",
+    bio: "Ms. Tusiime Eresi Biira chairs the Board of Directors of SISO Foundation. With a background in biomedical laboratory technology and frontline health service delivery at Kisoro Hospital, she brings both technical health expertise and practical community understanding to her governance role. She provides strategic leadership and ensures the Foundation's programmes remain aligned with community health priorities.",
+    image: "/team/rebecca.webp",
   },
   {
-    name: "Mr. Nuwamanya Julius Makobore",
-    title: "Board Secretary & Legal Advisor",
-    bio: "An Advocate of the High Court of Uganda with over 10 years of experience in legal practice, governance, human rights, and litigation. He provides legal guidance, supports compliance, and strengthens governance structures to uphold the mission and accountability of SISO Foundation.",
-    image: "/team/julius.jpeg",
+    name: "Ms. Akiding Elizabeth Joanita",
+    title: "Board Secretary",
+    qualifications: "Bachelor of Laws (LLB), Makerere University",
+    bio: "Ms. Akiding Elizabeth Joanita serves as Board Secretary of SISO Foundation. A trained lawyer from Makerere University, she provides legal guidance, supports regulatory compliance and ensures that governance documentation, board resolutions and institutional records are maintained to the highest professional standards.",
+    image: "/team/dianah.webp",
   },
   {
-    name: "Bernard Kahigi",
-    title: "Advisor (Resource Mobilisation)",
-    bio: "Bernard Kahigi holds a Postgraduate Diploma in Project Planning and brings over 20 years of experience managing health and child development programs in refugee and development settings. He provides strategic support in resource mobilization and program development.",
-    image: "/team/bernard.jpeg",
-  },
-  {
-    name: "Judith Kansiime, MPH",
-    title: "Board Member",
-    bio: "Judith Kansiime holds a Master of Public Health and brings over 15 years of experience in women’s health, sexual and reproductive health and rights, program leadership, and resource mobilization. She provides strategic oversight to help ensure SISO Foundation responds effectively to community health needs.",
-    image: "/team/judith.jpeg",
-  },
-  {
-    name: "Ms. Rebecca Atuheire",
-    title: "Board Member (Health & Planning Committee)",
-    bio: "Rebecca Atuheire is a Senior Nursing Officer with over 10 years of experience in health advocacy and reproductive health. She contributes to health planning and helps guide the development of programs that improve community wellbeing.",
-    image: "/team/rebecca.jpeg",
-  },
-  {
-    name: "Mbabazi Medard",
-    title: "Board Member (Community / Village Chairperson)",
-    bio: "Mbabazi Medard holds a Diploma in Teaching and represents community leadership within the board. He supports local coordination, accountability, and grassroots engagement.",
-  },
-];
-
-const secretariat: Person[] = [
-  {
-    name: "Mr. Jonathan Niwagaba",
-    title: "Founder & Executive Director",
-    bio: "Jonathan Niwagaba is the Founder and Executive Director of SISO Foundation. With a background in Computer Science, he is passionate about using technology and innovation to strengthen community development, improve service delivery, and support the organization’s strategic leadership and partnerships.",
-    image: "/team/jonathanniwagaba.jpeg",
-  },
-  {
-    name: "Atukunda Brian",
-    title: "Finance & Administration Officer",
-    bio: "Atukunda Brian serves as the Finance and Administration Officer at SISO Foundation. He supports transparent financial management, budgeting, reporting, and administrative efficiency within the organization.",
-    image: "/team/brian.jpeg",
+    name: "Jonathan Niwagaba",
+    title: "Executive Director (ex-officio)",
+    qualifications: "Diploma in Software Engineering, ISBAT University | BSc Computer Science (ongoing), ISBAT University",
+    bio: "Jonathan Niwagaba is the Founder and Executive Director of SISO Foundation. With a background in software engineering and computer science, he leads the Foundation's strategic direction, donor partnerships and programme operations. He serves on the Board in an ex-officio capacity, bridging governance and day-to-day management.",
+    image: "/team/jonathanniwagaba.webp",
   },
   {
     name: "Alinda Joshua Brian",
-    title: "Programs & Research Officer",
-    bio: "Alinda Joshua Brian supports program planning, research, data analysis, and program documentation to strengthen evidence-based interventions for vulnerable youth and women.",
-    image: "/team/alindajoshua.jpeg",
+    title: "Treasurer",
+    qualifications: "Bachelor of Arts in Economics, Makerere University",
+    bio: "Alinda Joshua Brian serves as Treasurer of SISO Foundation's Board of Directors. With a degree in Economics from Makerere University, he oversees the financial oversight function of the Board, ensuring that the Foundation's resources are managed responsibly and that financial reporting meets donor and regulatory requirements.",
+    image: "/team/brian.webp",
   },
   {
-    name: "Diana Kyarikunda",
-    title: "Secretary",
-    bio: "Diana Kyarikunda supports administrative coordination, documentation, and communication. She helps maintain records and ensures smooth coordination between the board, secretariat, and program teams.",
-    image: "/team/dianah.jpeg",
+    name: "Judith Kansiime",
+    title: "Advisor",
+    qualifications: "Master of Public Health (MPH), Uganda Christian University | Bachelor of Population Studies, Kyambogo University | Diploma in Clinical Medicine and Community Health, Fort Portal College of Health Sciences",
+    bio: "Judith Kansiime brings extensive expertise in public health, population studies and clinical medicine to her advisory role on the SISO Foundation Board. She provides strategic guidance on health programme design, community health priorities and evidence-based programme development.",
+    image: "/team/judith.webp",
   },
   {
-    name: "Sasha Ana Aheebwomugisha",
-    title: "Communications & Partnerships Officer",
-    bio: "Sasha Ana Aheebwomugisha supports communications, partnerships, digital visibility, and stakeholder engagement. She helps strengthen outreach and collaboration using technology and digital platforms.",
-    image: "/team/sasha.jpeg",
+    name: "Mbabazi Medard",
+    title: "Local Government Representative",
+    qualifications: "LC1 Chairperson, Kitahurira Village, Rubanda District",
+    bio: "Mbabazi Medard represents local government and community leadership on the SISO Foundation Board. As LC1 Chairperson for Kitahurira Village, he brings grassroots community knowledge, facilitates local coordination and ensures the Foundation's programmes remain accountable and responsive to the communities it serves.",
+  },
+];
+
+const management: Person[] = [
+  {
+    name: "Jonathan Niwagaba",
+    title: "Executive Director",
+    qualifications: "Diploma in Software Engineering, ISBAT University | BSc Computer Science (ongoing), ISBAT University",
+    bio: "Jonathan Niwagaba founded SISO Foundation and leads its overall strategy, partnerships and programme operations. He oversees all management functions and is responsible for the Foundation's institutional growth, donor relationships and long-term sustainability.",
+    image: "/team/jonathanniwagaba.webp",
+  },
+  {
+    name: "Atukunda Brian",
+    title: "Finance Manager",
+    qualifications: "Bachelor of Commerce, Makerere University",
+    bio: "Atukunda Brian manages the financial operations of SISO Foundation, including budgeting, financial reporting, accounts management and audit preparation. He ensures that all financial management meets donor requirements and complies with applicable accounting standards.",
+    image: "/team/brian.webp",
+  },
+  {
+    name: "Bernard Kahigi",
+    title: "Programme / Impact Manager",
+    qualifications: "Master of Public Health (MPH), Bishop Stuart University | BA Social Sciences, Makerere University | Diploma in Project Planning and Management, UMI",
+    bio: "Bernard Kahigi oversees programme planning, implementation, monitoring and impact reporting across all SISO Foundation programmes. With a background spanning public health, social sciences and project management, he ensures that programmes are evidence-based, effectively delivered and properly documented.",
+    image: "/team/kahigi.webp",
   },
   {
     name: "Ssukwe Stuart",
+    title: "Administrator",
+    qualifications: "Bachelor of Software Engineering, Makerere University",
+    bio: "Ssukwe Stuart manages the day-to-day administrative operations of SISO Foundation, including office management, records keeping, staff coordination and organisational systems. His background in software engineering also supports the Foundation's digital and technology needs.",
+    image: "/team/stuart.webp",
+  },
+  {
+    name: "Mfitundinda Samuel",
+    title: "Community Mobiliser",
+    qualifications: "Bachelor of Nursing Science, Metropolitan University | Nursing Officer, Muko General Hospital",
+    bio: "Mfitundinda Samuel leads community engagement, mobilisation and outreach activities for SISO Foundation. His nursing background and frontline health experience enable him to connect with communities effectively and coordinate the Foundation's community health and welfare programmes.",
+  },
+  {
+    name: "Kyarikunda Diana",
     title: "Monitoring & Evaluation Officer",
-    bio: "Ssukwe Stuart supports monitoring and evaluation, tracks program activities, and helps measure outcomes and impact to strengthen accountability and learning across the organization.",
-    image: "/team/stuart.jpeg",
+    qualifications: "Vocational Training — Plumbing",
+    bio: "Kyarikunda Diana supports monitoring and evaluation activities across SISO Foundation's programmes. She tracks programme activities, collects field data and contributes to the measurement of outcomes and impact to strengthen organisational learning and accountability.",
+    image: "/team/dianah.webp",
   },
   {
     name: "Naomi Beinomugisha",
-    title: "Program Officer",
-    bio: "Naomi Beinomugisha supports the planning and implementation of community-based programs. She works closely with communities and partners to coordinate activities and improve delivery of health, skills, and empowerment initiatives.",
-    image: "/team/naomi.jpeg",
+    title: "Communications Officer",
+    qualifications: "BA Industrial Art and Design, Kyambogo University",
+    bio: "Naomi Beinomugisha manages SISO Foundation's communications, digital presence and stakeholder engagement. With a background in art and design, she develops content, coordinates outreach materials and helps strengthen the Foundation's visibility and public profile.",
+    image: "/team/naomi.webp",
   },
 ];
 
@@ -163,7 +174,6 @@ function PeopleGrid({ items }: { items: Person[] }) {
                 </div>
               )}
             </div>
-
             <div>
               <div className="text-base font-extrabold text-slate-900">
                 {p.name}
@@ -173,8 +183,10 @@ function PeopleGrid({ items }: { items: Person[] }) {
               </div>
             </div>
           </div>
-
-          <p className="mt-4 text-sm leading-relaxed text-slate-600">{p.bio}</p>
+          <p className="mt-3 text-xs font-medium text-slate-500 leading-relaxed">
+            {p.qualifications}
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">{p.bio}</p>
         </div>
       ))}
     </div>
@@ -188,9 +200,11 @@ export default function GovernancePage() {
     name: "SISO Foundation",
     url: "https://sisofoundation.org/governance",
     description:
-      "Governance page for SISO Foundation, a nonprofit organization in Uganda committed to accountability, transparency, safeguarding, and responsible leadership.",
+      "Governance page for SISO Foundation, a registered NGO in Uganda committed to accountability, transparency, safeguarding and responsible leadership.",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Murubaya, Kashasha",
+      addressRegion: "Rubanda District",
       addressCountry: "UG",
     },
   };
@@ -209,17 +223,14 @@ export default function GovernancePage() {
             <p className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-zinc-200">
               Governance
             </p>
-
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
               Governance and accountability at SISO Foundation
             </h1>
-
             <p className="mt-4 text-zinc-300 md:text-lg">
-              SISO Foundation is a nonprofit organization in Uganda committed to
-              responsible leadership, clear oversight, transparency, and ethical
+              SISO Foundation is a registered NGO in Uganda committed to
+              responsible leadership, clear oversight, transparency and ethical
               stewardship in how we serve communities and work with supporters.
             </p>
-
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
@@ -227,7 +238,6 @@ export default function GovernancePage() {
               >
                 Contact the team →
               </Link>
-
               <Link
                 href="/donate"
                 className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
@@ -241,15 +251,15 @@ export default function GovernancePage() {
 
       {/* Content */}
       <section className="mx-auto max-w-6xl px-4 py-12 md:py-14">
+
         {/* Principles */}
         <div className="max-w-3xl">
           <h2 className="text-2xl font-extrabold text-slate-900">
             Our governance principles
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            These principles guide our leadership, decision-making, management,
-            and reporting as we work with communities, donors, and partners in
-            Uganda.
+            These principles guide our leadership, decision-making, management
+            and reporting as we work with communities, donors and partners.
           </p>
         </div>
 
@@ -273,34 +283,33 @@ export default function GovernancePage() {
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <h3 className="text-lg font-extrabold text-slate-900">
-              Leadership & oversight
+              Leadership and oversight
             </h3>
             <p className="mt-3 text-sm text-slate-600">
-              Administrative and strategic decisions are made with oversight,
-              documented processes, and regular review to ensure alignment with
-              our mission and community benefit.
+              Strategic and administrative decisions are made with documented
+              processes and regular Board review to ensure alignment with our
+              mission and community benefit.
             </p>
           </div>
-
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <h3 className="text-lg font-extrabold text-slate-900">
               Financial stewardship
             </h3>
             <p className="mt-3 text-sm text-slate-600">
-              Donations and organizational resources are managed with an
-              emphasis on accurate records, accountability, responsible use, and
-              transparent reporting.
+              All donations and organisational resources are managed with
+              accurate records, responsible use and transparent reporting.
+              Annual accounts are independently audited by Matrix & Company,
+              Certified Public Accountants, Mbarara.
             </p>
           </div>
-
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <h3 className="text-lg font-extrabold text-slate-900">
-              Risk & safeguarding
+              Risk and safeguarding
             </h3>
             <p className="mt-3 text-sm text-slate-600">
-              We promote safe practices, respectful engagement, and careful
-              handling of sensitive information to protect participants and
-              vulnerable communities.
+              We promote safe practices, respectful engagement and careful
+              handling of sensitive information to protect all participants and
+              vulnerable community members.
             </p>
           </div>
         </div>
@@ -312,9 +321,8 @@ export default function GovernancePage() {
           </h3>
           <p className="mt-2 text-sm text-slate-600">
             Explore the pages that explain how SISO Foundation is structured,
-            what guides our work, and how support translates into impact.
+            what guides our work and how support translates into impact.
           </p>
-
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {documents.map((d) => (
               <Link
@@ -344,26 +352,25 @@ export default function GovernancePage() {
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               The Board of Directors provides strategic leadership, governance,
-              oversight, and accountability for SISO Foundation.
+              oversight and accountability for SISO Foundation.
             </p>
           </div>
-
           <PeopleGrid items={board} />
         </div>
 
-        {/* Secretariat */}
+        {/* Management */}
         <div className="mt-12">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-extrabold text-slate-900">
-              Secretariat
+              Management Team
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              The secretariat supports day-to-day operations, program delivery,
-              administration, communication, and organizational learning.
+              The management team drives day-to-day operations, programme
+              delivery, administration, communications and organisational
+              learning.
             </p>
           </div>
-
-          <PeopleGrid items={secretariat} />
+          <PeopleGrid items={management} />
         </div>
 
         {/* CTA */}
@@ -374,12 +381,10 @@ export default function GovernancePage() {
                 Want to partner with SISO Foundation?
               </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Reach out and we’ll discuss shared goals, accountability,
-                transparency, and how we can work together to create impact in
-                Uganda.
+                Reach out and we will discuss shared goals, accountability and
+                how we can work together to create impact across Western Uganda.
               </p>
             </div>
-
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
@@ -387,7 +392,6 @@ export default function GovernancePage() {
               >
                 Contact us
               </Link>
-
               <Link
                 href="/about"
                 className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
