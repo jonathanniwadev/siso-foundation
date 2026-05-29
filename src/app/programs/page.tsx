@@ -3,53 +3,76 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Programs",
+  title: "Programmes | SISO Foundation Uganda",
   description:
-    "Explore SISO Foundation programs in Uganda, including reproductive health, skills development, menstrual hygiene, women empowerment, youth mentorship, and community outreach.",
+    "Explore SISO Foundation's community programmes in Uganda — health outreach, skills development, child protection, human rights, environmental conservation and emergency response across Western Uganda.",
 };
 
 type Program = {
   title: string;
   description: string;
   tags: string[];
+  stat?: string;
+  statLabel?: string;
 };
 
 const programs: Program[] = [
   {
-    title: "Reproductive Health & SRHR",
+    title: "Health and Wellness",
     description:
-      "Community education, awareness, and support that improve reproductive health and SRHR outcomes for youth and women in Uganda.",
-    tags: ["Health", "SRHR", "Community"],
+      "Community health outreach, maternal and child health services, immunisation campaigns and school health programmes delivered across six districts in Western Uganda. In 2025 we supported over 400 patients and immunised 320 children against preventable diseases.",
+    tags: ["Health", "Outreach", "Immunisation"],
+    stat: "400+",
+    statLabel: "Patients Supported",
   },
   {
-    title: "Skills Development",
+    title: "Skills Development and Economic Empowerment",
     description:
-      "Practical skills training, mentorship, and livelihood support that empower youth with employability and income opportunities.",
-    tags: ["Training", "Youth", "Livelihoods"],
+      "Vocational and practical skills training for youth from vulnerable communities. Graduates receive tools, certification and startup support to enable them to earn a sustainable income. In 2025 we trained 40 youth through the Skills for Development Project in partnership with Youth First Uganda.",
+    tags: ["Skills", "Youth", "Livelihoods"],
+    stat: "40+",
+    statLabel: "Youth Trained",
   },
   {
-    title: "Menstrual Hygiene & Dignity",
+    title: "Child Protection and Feeding",
     description:
-      "Menstrual health education and dignity support that help girls stay confident, healthy, and in school.",
-    tags: ["MHM", "Dignity", "Education"],
+      "Welfare support, feeding programmes and referral services for street-connected children and vulnerable families. In 2025 we supported approximately 100 street-connected children through feeding and protection interventions in partnership with Lords Children and Elderly Compassion.",
+    tags: ["Children", "Protection", "Feeding"],
+    stat: "100+",
+    statLabel: "Children Supported",
   },
   {
-    title: "Women Empowerment",
+    title: "Human Rights Protection",
     description:
-      "Programs that strengthen women’s confidence, economic resilience, and participation through empowerment and community support.",
-    tags: ["Women", "Empowerment", "Resilience"],
+      "Community sensitisation, advocacy and civic education promoting the rights of women, children and persons with disabilities. We work with local leaders and community structures to raise awareness, address violations and strengthen access to justice.",
+    tags: ["Human Rights", "Advocacy", "Community"],
   },
   {
-    title: "Community Outreach",
+    title: "Environmental Conservation",
     description:
-      "Targeted outreach in vulnerable communities to identify urgent needs, provide support, and connect people to opportunities.",
-    tags: ["Outreach", "Support", "Impact"],
+      "Tree planting, conservation education and community-based environmental stewardship activities across Western Uganda. We work with communities to protect natural resources and promote sustainable land use practices.",
+    tags: ["Environment", "Conservation", "Sustainability"],
   },
   {
-    title: "Youth Mentorship & Leadership",
+    title: "Emergency Response",
     description:
-      "Mentorship and leadership development that help young people become responsible, purpose-driven leaders in their communities.",
-    tags: ["Mentorship", "Leadership", "Youth"],
+      "Humanitarian assistance for communities affected by food insecurity, displacement and other acute crises. In 2025 we delivered emergency feeding support in Kisoro District, responding to identified food insecurity among vulnerable families.",
+    tags: ["Emergency", "Humanitarian", "Food Security"],
+  },
+];
+
+const expansion = [
+  {
+    title: "Reproductive Health",
+    description:
+      "SISO Foundation is actively seeking grants and partnerships to expand into reproductive health education and community-based sexual and reproductive health and rights (SRHR) programmes across Western Uganda.",
+    tags: ["SRHR", "Health", "Future"],
+  },
+  {
+    title: "Menstrual Hygiene and Dignity",
+    description:
+      "We are working to secure funding for menstrual hygiene management (MHM) programmes that will support girls to stay in school, access menstrual products and receive dignity-centred health education.",
+    tags: ["MHM", "Girls", "Education"],
   },
 ];
 
@@ -61,7 +84,7 @@ export default function ProgramsPage() {
         <div className="absolute inset-0">
           <Image
             src="/hero/programs-hero.webp"
-            alt="SISO Foundation programs supporting communities in Uganda"
+            alt="SISO Foundation community programmes in Western Uganda"
             fill
             priority
             sizes="100vw"
@@ -73,17 +96,18 @@ export default function ProgramsPage() {
         <div className="relative mx-auto max-w-6xl px-4 py-14 md:py-20">
           <div className="max-w-3xl">
             <p className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white/90 backdrop-blur">
-              Programs
+              Programmes
             </p>
 
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-              Community programs creating real impact in Uganda
+              Community programmes creating real impact in Uganda
             </h1>
 
             <p className="mt-4 max-w-2xl text-base leading-8 text-zinc-200 md:text-lg">
-              SISO Foundation delivers community-centered programs in Uganda
-              that improve health, build practical skills, promote dignity, and
-              strengthen resilience among vulnerable youth, women, and families.
+              SISO Foundation delivers six integrated community programmes
+              across Western Uganda — improving health, building skills,
+              protecting children and strengthening resilience among vulnerable
+              communities.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -91,7 +115,7 @@ export default function ProgramsPage() {
                 href="/donate"
                 className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-emerald-700"
               >
-                Support a Program →
+                Support a Programme →
               </Link>
 
               <Link
@@ -109,16 +133,17 @@ export default function ProgramsPage() {
       <section className="mx-auto max-w-6xl px-4 py-14 md:py-16">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-extrabold text-slate-900 md:text-3xl">
-            Our Programs & Focus Areas
+            Our Programmes and Focus Areas
           </h2>
           <p className="mt-3 text-slate-600">
-            Our nonprofit programs are designed around real community needs in
-            Uganda. We combine awareness, practical support, mentorship, and
-            empowerment to improve lives and create sustainable change.
+            In 2025, SISO Foundation implemented six community-based programmes
+            across the districts of Rubanda, Kabale, Kisoro, Kanungu, Kabarole
+            and Mbarara, reaching over 1,500 beneficiaries. All programmes are
+            independently audited and transparently reported.
           </p>
         </div>
 
-        {/* Cards */}
+        {/* Programme Cards */}
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((p) => (
             <div
@@ -134,6 +159,17 @@ export default function ProgramsPage() {
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {p.description}
               </p>
+
+              {p.stat && (
+                <div className="mt-5 rounded-xl bg-emerald-50 px-4 py-3">
+                  <div className="text-2xl font-extrabold text-emerald-700">
+                    {p.stat}
+                  </div>
+                  <div className="text-xs font-medium text-emerald-600">
+                    {p.statLabel}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
@@ -158,16 +194,69 @@ export default function ProgramsPage() {
           ))}
         </div>
 
+        {/* Areas of Expansion */}
+        <div className="mt-16">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-extrabold text-slate-900 md:text-3xl">
+              Areas of Expansion
+            </h2>
+            <p className="mt-3 text-slate-600">
+              SISO Foundation is actively seeking grants and partnerships to
+              expand into the following programme areas. If you are interested
+              in funding or partnering with us, please get in touch.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            {expansion.map((p) => (
+              <div
+                key={p.title}
+                className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50 p-7"
+              >
+                <div className="h-1.5 w-14 rounded-full bg-emerald-300" />
+
+                <div className="mt-5 text-lg font-extrabold text-slate-900">
+                  {p.title}
+                </div>
+
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {p.description}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-emerald-200 bg-white px-2.5 py-1 text-xs font-semibold text-emerald-700"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-6">
+                  <Link
+                    href="/contact"
+                    className="text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                  >
+                    Fund this programme →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Sponsor CTA */}
         <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:p-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-xl font-extrabold text-slate-900 md:text-2xl">
-                Want to sponsor a specific activity?
+                Want to sponsor a specific programme?
               </h2>
               <p className="mt-2 text-sm leading-7 text-slate-600">
-                Reach out and we’ll share activity plans, timelines, budgets,
-                and exactly how your support will be used clearly and
+                Reach out and we will share activity plans, timelines, budgets
+                and exactly how your support will be used — clearly and
                 transparently.
               </p>
             </div>
