@@ -14,43 +14,42 @@ const board: BoardMember[] = [
  {
     name: "Ms. Tusiime Eresi Biira",
     title: "Chairperson",
-    qualifications: "Bachelor of Biomedical Laboratory Technology | Lab Officer, Kisoro Hospital",
-    bio: "Ms. Tusiime Eresi Biira chairs the Board of Directors of SISO Foundation. With a background in biomedical laboratory technology and frontline health service delivery at Kisoro Hospital, she brings both technical health expertise and practical community understanding to her governance role. She provides strategic leadership and ensures the Foundation's programmes remain aligned with community health priorities.",
+    
+    bio: "She chairs the Board of Directors of SISO Foundation. With a background in biomedical laboratory technology and frontline health service delivery at Kisoro Hospital, she brings both technical health expertise and practical community understanding to her governance role. She provides strategic leadership and ensures the Foundation's programmes remain aligned with community health priorities.",
     image: "/team/tusiime.jpeg",
   },
   {
     name: "Ms. Akiding Elizabeth Joanita",
     title: "Board Secretary",
-    qualifications: "Bachelor of Laws (LLB), Makerere University",
-    bio: "Ms. Akiding Elizabeth Joanita serves as Board Secretary of SISO Foundation. A trained lawyer from Makerere University, she provides legal guidance, supports regulatory compliance and ensures that governance documentation, board resolutions and institutional records are maintained to the highest professional standards.",
+    
+    bio: "She serves as Board Secretary of SISO Foundation. A trained lawyer from Makerere University, she provides legal guidance, supports regulatory compliance and ensures that governance documentation, board resolutions and institutional records are maintained to the highest professional standards.",
     image: "/team/elizabeth.jpeg",
   },
   {
     name: "Jonathan Niwagaba",
     title: "Executive Director (ex-officio)",
-    qualifications: "BSc Computer Science, ISBAT University | Diploma in Software Engineering, ISBAT University  ",
-    bio: "Jonathan Niwagaba is the Founder and Executive Director of SISO Foundation. With a background in software engineering and computer science, he leads the Foundation's strategic direction, donor partnerships and programme operations. He serves on the Board in an ex-officio capacity, bridging governance and day-to-day management.",
+    
+    bio: "He is the Founder and Executive Director of SISO Foundation. With a background in software engineering and computer science, he leads the Foundation's strategic direction, donor partnerships and programme operations. He serves on the Board in an ex-officio capacity, bridging governance and day-to-day management.",
     image: "/team/jonathanniwagaba.webp",
   },
   {
     name: "Alinda Joshua Brian",
     title: "Treasurer",
-    qualifications: "Bachelor of Arts in Economics, Makerere University",
-    bio: "Alinda Joshua Brian serves as Treasurer of SISO Foundation's Board of Directors. With a degree in Economics from Makerere University, he oversees the financial oversight function of the Board, ensuring that the Foundation's resources are managed responsibly and that financial reporting meets donor and regulatory requirements.",
+    
+    bio: "He serves as Treasurer of SISO Foundation's Board of Directors. With a degree in Economics from Makerere University, he oversees the financial oversight function of the Board, ensuring that the Foundation's resources are managed responsibly and that financial reporting meets donor and regulatory requirements.",
     image: "/team/alinda.jpeg",
   },
   {
     name: "Judith Kansiime",
     title: "Advisor",
-    qualifications: "Master of Public Health (MPH), Uganda Christian University | Bachelor of Population Studies, Kyambogo University | Diploma in Clinical Medicine and Community Health, Fort Portal College of Health Sciences",
-    bio: "Judith Kansiime brings extensive expertise in public health, population studies and clinical medicine to her advisory role on the SISO Foundation Board. She provides strategic guidance on health programme design, community health priorities and evidence-based programme development.",
+  
+    bio: "She brings extensive expertise in public health, population studies and clinical medicine to her advisory role on the SISO Foundation Board. She provides strategic guidance on health programme design, community health priorities and evidence-based programme development.",
     image: "/team/judith.webp",
   },
   {
     name: "Mbabazi Medard",
     title: "Local Government Representative",
-    qualifications: "Diploma in Teaching, Kyambogo University | LC1 Chairperson, Kitahurira Village, Rubanda District",
-    bio: "Mbabazi Medard represents local government and community leadership on the SISO Foundation Board. As LC1 Chairperson for Kitahurira Village, he brings grassroots community knowledge, facilitates local coordination and ensures the Foundation's programmes remain accountable and responsive to the communities it serves.",
+    bio: "He represents local government and community leadership on the SISO Foundation Board. As LC1 Chairperson for Kitahurira Village, he brings grassroots community knowledge, facilitates local coordination and ensures the Foundation's programmes remain accountable and responsive to the communities it serves.",
     image: "/team/medard.jpeg",
   }
 ];
