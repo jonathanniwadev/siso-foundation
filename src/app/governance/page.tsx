@@ -96,7 +96,7 @@ const board: Person[] = [
     title: "Local Government Representative",
     qualifications: "Diploma in Teaching, Kyambogo University | LC1 Chairperson, Kitahurira Village, Rubanda District",
     bio: "Mbabazi Medard represents local government and community leadership on the SISO Foundation Board. As LC1 Chairperson for Kitahurira Village, he brings grassroots community knowledge, facilitates local coordination and ensures the Foundation's programmes remain accountable and responsive to the communities it serves.",
-    image: "/team/mbabazi.jpeg",
+    image: "/team/medard.jpeg",
   },
 ];
 
