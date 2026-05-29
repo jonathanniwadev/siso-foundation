@@ -46,15 +46,7 @@ export default function CertificationPage() {
       description:
         "SISO Foundation operates under a signed and stamped constitution that governs its leadership, accountability structures, membership and programme activities.",
       detail: "Available on request",
-      date: "View: /constitution",
-    },
-    {
-      badge: "Financial Compliance",
-      title: "Audited Financial Statements",
-      description:
-        "SISO Foundation's annual accounts are independently audited by Matrix and Company, Certified Public Accountants, Mbarara. Audited statements are available to partners and donors on request.",
-      detail: "Audited by Matrix & Company, Mbarara",
-      date: "2024 and 2025 accounts audited",
+      date: "Contact us to request a copy",
     },
   ];
 
@@ -79,9 +71,9 @@ export default function CertificationPage() {
 
             <p className="mt-3 text-zinc-300 md:text-base">
               SISO Foundation is a registered NGO in Uganda operating with
-              lawful documentation, accountable governance and independently
-              audited finances. Our registration details are publicly available
-              and all certification documents can be provided to partners and
+              lawful documentation, accountable governance and transparent
+              operations. Our registration details are publicly available and
+              all certification documents can be provided to partners and
               donors on request.
             </p>
 
@@ -92,7 +84,6 @@ export default function CertificationPage() {
               >
                 Request documents →
               </Link>
-
               <Link
                 href="/governance"
                 className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
@@ -118,20 +109,20 @@ export default function CertificationPage() {
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="text-sm font-extrabold text-slate-900">
-              Independently audited
+              Governed with accountability
             </div>
             <p className="mt-2 text-sm text-slate-600">
-              Annual accounts independently audited by Matrix and Company,
-              Certified Public Accountants, Mbarara — for both 2024 and 2025.
+              Led by a six-member Board of Directors with legal, health and
+              community expertise ensuring responsible oversight.
             </p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="text-sm font-extrabold text-slate-900">
-              Accountable governance
+              Transparent operations
             </div>
             <p className="mt-2 text-sm text-slate-600">
-              Governed by a six-member Board of Directors including legal,
-              health and community expertise. Full governance details available.
+              We maintain clear documentation to support trust, verification
+              and accountability to supporters, partners and communities.
             </p>
           </div>
         </div>
@@ -144,13 +135,13 @@ export default function CertificationPage() {
             Registration and Compliance Details
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            SISO Foundation operates transparently under Ugandan law.
-            All documents are available to partners, donors and government
+            SISO Foundation operates transparently under Ugandan law. All
+            documents are available to partners, donors and government
             authorities on request.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
           {registrations.map((r) => (
             <div
               key={r.title}
@@ -159,13 +150,10 @@ export default function CertificationPage() {
               <p className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-900">
                 {r.badge}
               </p>
-
               <h3 className="mt-4 text-lg font-extrabold text-slate-900">
                 {r.title}
               </h3>
-
               <p className="mt-2 text-sm text-slate-600">{r.description}</p>
-
               <div className="mt-4 space-y-1">
                 <p className="text-sm font-semibold text-slate-900">
                   {r.detail}
@@ -194,9 +182,16 @@ export default function CertificationPage() {
               { label: "Incorporated", value: "12th August 2024" },
               { label: "CBO Registered", value: "30th September 2024" },
             ].map(({ label, value }) => (
-              <div key={label} className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
-                <div className="text-xs font-medium text-slate-500">{label}</div>
-                <div className="mt-1 text-sm font-bold text-slate-900">{value}</div>
+              <div
+                key={label}
+                className="rounded-xl bg-white border border-slate-200 p-4 shadow-sm"
+              >
+                <div className="text-xs font-medium text-slate-500">
+                  {label}
+                </div>
+                <div className="mt-1 text-sm font-bold text-slate-900">
+                  {value}
+                </div>
               </div>
             ))}
           </div>
@@ -211,15 +206,15 @@ export default function CertificationPage() {
           </h3>
           <p className="mt-2 text-sm text-slate-600">
             Partners, donors and government authorities may request copies of
-            our registration certificates, audited financial statements or
-            constitution by contacting us directly at{" "}
+            our registration certificates or constitution by contacting us
+            directly at{" "}
             <a
               href="mailto:info@sisofoundation.org"
               className="font-semibold text-emerald-700 hover:text-emerald-800"
             >
               info@sisofoundation.org
             </a>
-            . We respond within 24\u201348 hours.
+            . We respond within 24–48 hours.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
