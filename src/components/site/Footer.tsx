@@ -8,8 +8,15 @@ export default function Footer() {
               SISO Foundation
             </h3>
             <p className="mt-2 text-sm text-slate-600">
-              Supporting youth and communities through reproductive health,
-              skills & livelihoods, and menstrual hygiene / women empowerment.
+              A registered NGO in Uganda delivering health outreach, skills
+              development, child protection, human rights and environmental
+              programmes across Western Uganda.
+            </p>
+            <p className="mt-3 text-xs text-slate-400">
+              URSB Reg. No. 80034455001997
+            </p>
+            <p className="mt-0.5 text-xs text-slate-400">
+              CBO Reg. No. RBD/921/CBO/096/2024
             </p>
           </div>
 
@@ -25,15 +32,10 @@ export default function Footer() {
                   info@sisofoundation.org
                 </a>
               </li>
-              {/* <li>
-                Phone:{" "}
-                <a
-                  className="font-semibold hover:underline"
-                  href="tel:+256701523269"
-                >
-                  +256-701-523269
-                </a>
-              </li> */}
+              <li className="text-slate-500">
+                Murubaya, Kashasha, Rubanda District
+              </li>
+              <li className="text-slate-500">Western Uganda</li>
             </ul>
           </div>
 
@@ -41,18 +43,28 @@ export default function Footer() {
             <h4 className="text-sm font-bold text-slate-900">Quick Links</h4>
             <ul className="mt-2 space-y-2 text-sm text-slate-600">
               <li>
-                <a className="hover:underline" href="/programs">
-                  Programs
+                <a className="hover:underline" href="/about">
+                  About Us
                 </a>
               </li>
               <li>
-                <a className="hover:underline" href="/donate">
-                  Donate
+                <a className="hover:underline" href="/programs">
+                  Programmes
+                </a>
+              </li>
+              <li>
+                <a className="hover:underline" href="/governance">
+                  Governance
                 </a>
               </li>
               <li>
                 <a className="hover:underline" href="/certification">
                   Certification
+                </a>
+              </li>
+              <li>
+                <a className="hover:underline" href="/donate">
+                  Donate
                 </a>
               </li>
               <li>
@@ -68,7 +80,7 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} SISO Foundation. All rights reserved.
           </p>
-          <p>Built with transparency • Community impact • Accountability</p>
+          <p>Transparency · Accountability · Community Impact</p>
         </div>
       </div>
     </footer>
