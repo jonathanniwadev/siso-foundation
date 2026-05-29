@@ -96,7 +96,7 @@ export default function HomePage() {
               <div className="my-6 h-px bg-slate-200" />
 
               <p className="text-base leading-8 text-slate-700">
-                In 2025, we reached over 7,950 people across six districts
+                In 2025, we reached over 1,500 people across six districts
                 through integrated programmes in healthcare, child protection,
                 skills development, human rights and environmental conservation.
                 All our work is independently audited and transparently
